@@ -18,3 +18,8 @@
 #função open() e close()
 
 #w,r,a (escrever,ler,adicionar)
+
+#RESUMO_AULA_20_03
+
+É descrito um caso de uma empresa na qual o programador teve números float imprecisos.
+
