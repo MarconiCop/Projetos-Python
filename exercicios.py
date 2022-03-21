@@ -17,7 +17,6 @@ def multiplos():
 
 def fator():
 
-
     lista_multiplos = []
     for numero_multiplo in range(2, 600851475143):
 
@@ -36,6 +35,37 @@ def fator():
 
     print(lista_multiplos[len(lista_multiplos)-1])
 
+######################################################################Exercício_6
+
+def diferenca(quadrado_das_somas, soma_numero_quadrado):
+
+    diferenca = quadrado_das_somas - soma_numero_quadrado
+    print(diferenca)
+
+def soma_numero_quadrado():
+
+    soma_numero_quadrado = 0
+
+    for numero in range(1, 101):
+        numero_quadradro = numero * numero
+        soma_numero_quadrado += numero_quadradro
+
+    return soma_numero_quadrado
+
+def quadrado_das_somas():
+
+    soma_dos_numeros = 0
+
+    for numero in range(1, 101):
+        soma_dos_numeros += numero
+        quadrado_das_somas = soma_dos_numeros * soma_dos_numeros
+
+    return quadrado_das_somas
+
+
+
 if(__name__ == "__main__"):
-    fator()
-#################################################################################
+    diferenca(quadrado_das_somas(),soma_numero_quadrado())
+
+######################################################################Exercício_
+
