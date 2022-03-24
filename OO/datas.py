@@ -9,7 +9,7 @@ class Data:
 
     def formatada(self):
 
-        print("{}/{}/{}".format(self.dia, self.mes, self.ano))
+        print(self.dia, self.mes, self.ano, sep="/")
 
 
 
