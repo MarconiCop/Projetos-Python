@@ -155,5 +155,19 @@ def salario_tipo():
     print("- Sindicato ( 5%) : R$ {:.2f}".format(salario_sindicato))
     print("= Salário Liquido : R$ {:.2f}".format(salario_liquido))
 
+#16. Faça um programa para uma loja de tintas. O programa deverá pedir o tamanho em metros quadrados da área a ser pintada.
+# Considere que a cobertura da tinta é de 1 litro para cada 3 metros quadrados e que a tinta é vendida em latas de 18 litros, que custam R$ 80,00.
+# Informe ao usuário a quantidades de latas de tinta a serem compradas e o preço total.
+
+def tinta():
+    area = float(input("Digite o tamanho da área(m²) a ser pintada: "))
+    quantidade_tinta = round(area / 3, 2)
+    print("Será necessário {} litros de tinta.".format(quantidade_tinta))
+    quantidade_latas = round(quantidade_tinta / 18)
+    print("Será necessário {} lata(s) de tinta.".format(quantidade_latas))
+    preco = quantidade_latas * 80
+    print("O preço total é {} reais em latas de tinta.".format(preco))
+
+
 if(__name__ == "__main__"):
-    salario_tipo()
+    tinta()
