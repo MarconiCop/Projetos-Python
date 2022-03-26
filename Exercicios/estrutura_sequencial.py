@@ -1,4 +1,7 @@
 #1.Faça um Programa que mostre a mensagem "Alo mundo" na tela.
+import math
+
+
 def imprime():
     print("Alô mundo")
 
@@ -168,6 +171,52 @@ def tinta():
     preco = quantidade_latas * 80
     print("O preço total é {} reais em latas de tinta.".format(preco))
 
+#17. Faça um Programa para uma loja de tintas. O programa deverá pedir o tamanho em metros quadrados da área a ser pintada. Considere que a cobertura da tinta é de 1 litro para cada 6 metros quadrados e que a tinta é vendida em latas de 18 litros, que custam R$ 80,00 ou em galões de 3,6 litros, que custam R$ 25,00.
+#Informe ao usuário as quantidades de tinta a serem compradas e os respectivos preços em 3 situações:
+#comprar apenas latas de 18 litros;
+#comprar apenas galões de 3,6 litros;
+#misturar latas e galões, de forma que o desperdício de tinta seja menor. Acrescente 10% de folga e sempre arredonde os valores para cima, isto é, considere latas cheias.
+
+def tinta_galao():
+    area = float(input("Digite o tamanho da área(m²) a ser pintada: "))
+    quantidade_tinta = (area / 6) * 1.1
+    print("Será necessário {:.2f} litros de tinta.".format(quantidade_tinta))
+
+    quantidade_latas = math.ceil(quantidade_tinta / 18)
+    print("Será necessário {} lata(s) de tinta.".format(quantidade_latas))
+
+    preco_lata = quantidade_latas * 80
+    print("O preço total é {} reais em latas de tinta.".format(preco_lata))
+
+    quantidade_galoes = math.ceil(quantidade_tinta / 3.6)
+    print("Será necessário {} galão(ões) de tinta.".format(quantidade_galoes))
+
+    preco_galao = quantidade_galoes * 25
+    print("O preço total é {} reais em galões de tinta.".format(preco_galao))
+
+    mistura_lata = round(quantidade_tinta / 18)
+    if(mistura_lata < 1):
+        mistura_lata = 1
+
+    mistura_galao = round((quantidade_tinta - mistura_lata * 18) / 3.6)
+
+    if(quantidade_tinta - (mistura_lata * 18) % 3.6 != 0):
+        mistura_galao += 1
+
+    total_mistura = mistura_lata * 80 + mistura_galao * 25
+
+    print("Economizando, será necessário {} latas e {} galões custando {} reais".format(mistura_lata, mistura_galao, total_mistura))
+
+#18. Faça um programa que peça o tamanho de um arquivo para download (em MB) e a velocidade de um link de Internet (em Mbps),
+#calcule e informe o tempo aproximado de download do arquivo usando este link (em minutos).
+
+def arquivo():
+    tamanho_arquivo = float(input("Digite o tamanho do arquivo(MB) para download: "))
+    velocidade_internet = float(input("Digite a velocidade(MBps) da internet: "))
+
+    tempo_download_segundos = tamanho_arquivo / velocidade_internet
+    tempo_download_minutos = tempo_download_segundos / 60
+    print("Tempo de download: {:.2f} segundo(s) ou {:.2f} minuto(s)".format(tempo_download_segundos, tempo_download_minutos))
 
 if(__name__ == "__main__"):
-    tinta()
+    arquivo()
