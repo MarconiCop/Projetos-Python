@@ -75,5 +75,71 @@ def maior_numero():
     else:
         print("O maior número é {}!".format(numero_tres))
 
+#7.Faça um Programa que leia três números e mostre o maior e o menor deles.
+
+def maior_menor_numero():
+    numero_um = int(input("Digite o primeiro número: "))
+    numero_dois = int(input("Digite o segundo número: "))
+    numero_tres = int(input("Digite o terceiro número: "))
+
+    if (numero_um > numero_dois and numero_um > numero_tres):
+        print("O maior número é {}!".format(numero_um))
+        if(numero_dois > numero_tres):
+            print("O menor número é {}!".format(numero_tres))
+        else:
+            print("O menor número é {}!".format(numero_dois))
+
+    elif(numero_dois > numero_um and numero_dois > numero_tres):
+        print("O maior número é {}!".format(numero_dois))
+        if (numero_um > numero_tres):
+            print("O menor número é {}!".format(numero_tres))
+        else:
+            print("O menor número é {}!".format(numero_um))
+    else:
+        print("O maior número é {}!".format(numero_tres))
+        if (numero_um > numero_dois):
+            print("O menor número é {}!".format(numero_dois))
+        else:
+            print("O menor número é {}!".format(numero_um))
+
+#8.Faça um programa que pergunte o preço de três produtos e informe qual produto você deve comprar, sabendo que a decisão é sempre pelo mais barato.
+
+def produto_mais_barato():
+
+    preco_um = float(input("Digite o preço do primeiro produto: "))
+    preco_dois = float(input("Digite o preço do segundo produto: "))
+    preco_tres = float(input("Digite o preço do terceiro produto: "))
+
+    if(preco_um < preco_dois and preco_um < preco_tres):
+        print("O produto de preço R${:.2f} é o mais barato!".format(preco_um))
+    elif(preco_dois < preco_um and preco_dois < preco_tres):
+        print("O produto de preço R${:.2f} é o mais barato!".format(preco_dois))
+    else:
+        print("O produto de preço R${:.2f} é o mais barato!".format(preco_tres))
+
+#9.Faça um Programa que leia três números e mostre-os em ordem decrescente.
+
+def ordem_decrescente():
+    numero_um = int(input("Digite o primeiro número: "))
+    numero_dois = int(input("Digite o segundo número: "))
+    numero_tres = int(input("Digite o terceiro número: "))
+
+    if (numero_um > numero_dois and numero_um > numero_tres):
+        if(numero_dois > numero_tres):
+            print("Ordem decrescente: {}, {}, {}".format(numero_um, numero_dois, numero_tres))
+        else:
+            print("Ordem decrescente: {}, {}, {}".format(numero_um, numero_tres, numero_dois))
+
+    elif(numero_dois > numero_um and numero_dois > numero_tres):
+        if (numero_um > numero_tres):
+            print("Ordem decrescente: {}, {}, {}".format(numero_dois, numero_um, numero_tres))
+        else:
+            print("Ordem decrescente: {}, {}, {}".format(numero_dois, numero_tres, numero_um))
+    else:
+        if (numero_um > numero_dois):
+            print("Ordem decrescente: {}, {}, {}".format(numero_tres, numero_um, numero_dois))
+        else:
+            print("Ordem decrescente: {}, {}, {}".format(numero_tres, numero_dois, numero_um))
+
 if(__name__ == "__main__"):
-    maior_numero()
+    ordem_decrescente()
