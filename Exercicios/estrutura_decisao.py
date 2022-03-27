@@ -155,5 +155,40 @@ def turno():
     else:
         print("Valor Inválido!")
 
+#11.As Organizações Tabajara resolveram dar um aumento de salário aos seus colaboradores e lhe contraram para desenvolver o programa que calculará os reajustes.
+#Faça um programa que recebe o salário de um colaborador e o reajuste segundo o seguinte critério, baseado no salário atual:
+#salários até R$ 280,00 (incluindo) : aumento de 20%
+#salários entre R$ 280,00 e R$ 700,00 : aumento de 15%
+#salários entre R$ 700,00 e R$ 1500,00 : aumento de 10%
+#salários de R$ 1500,00 em diante : aumento de 5% Após o aumento ser realizado, informe na tela:
+#o salário antes do reajuste;
+#o percentual de aumento aplicado;
+#o valor do aumento;
+#o novo salário, após o aumento.
+
+def reajuste():
+    salario_sem_reajuste = float(input("Digite seu salário atual(sem reajuste): "))
+    if(salario_sem_reajuste <= 280):
+        salario_com_reajuste = ((20 / 100) * salario_sem_reajuste) + salario_sem_reajuste
+        percentual = 20
+        valor_do_aumento = (20 / 100) * salario_sem_reajuste
+    elif(salario_sem_reajuste > 280 and salario_sem_reajuste < 700):
+        salario_com_reajuste = ((15 / 100) * salario_sem_reajuste) + salario_sem_reajuste
+        percentual = 15
+        valor_do_aumento = (15 / 100) * salario_sem_reajuste
+    elif(salario_sem_reajuste >= 700 and salario_sem_reajuste < 1500):
+        salario_com_reajuste = ((10 / 100) * salario_sem_reajuste) + salario_sem_reajuste
+        percentual = 10
+        valor_do_aumento = (10 / 100) * salario_sem_reajuste
+    elif(salario_sem_reajuste >= 1500):
+        salario_com_reajuste = ((5 / 100) * salario_sem_reajuste) + salario_sem_reajuste
+        percentual = 5
+        valor_do_aumento = (5 / 100) * salario_sem_reajuste
+
+    print("Salário antes do reajuste: R${:.2f}".format(salario_sem_reajuste))
+    print("Foi aplicado um percentual de: {}%".format(percentual))
+    print("O reajuste foi de: R${:.2f}".format(valor_do_aumento))
+    print("Salário após reajuste: R${:.2f}".format(salario_com_reajuste))
+
 if(__name__ == "__main__"):
-    turno()
+    reajuste()
