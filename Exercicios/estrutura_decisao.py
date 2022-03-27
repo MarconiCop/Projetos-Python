@@ -61,5 +61,19 @@ def media():
     else:
         print("Média fora do intervalo!")
 
+#6.Faça um Programa que leia três números e mostre o maior deles.
+
+def maior_numero():
+    numero_um = int(input("Digite o primeiro número: "))
+    numero_dois = int(input("Digite o segundo número: "))
+    numero_tres = int(input("Digite o terceiro número: "))
+
+    if (numero_um > numero_dois and numero_um > numero_tres):
+        print("O maior número é {}!".format(numero_um))
+    elif(numero_dois > numero_um and numero_dois > numero_tres):
+        print("O maior número é {}!".format(numero_dois))
+    else:
+        print("O maior número é {}!".format(numero_tres))
+
 if(__name__ == "__main__"):
-    media()
+    maior_numero()
