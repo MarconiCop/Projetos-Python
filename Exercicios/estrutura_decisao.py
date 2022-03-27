@@ -26,7 +26,7 @@ def sexo_letra():
     letra = input("Digite F se for feminino ou M se for masculino:").upper().strip()
     if(letra == "F"):
         print("F - Feminino")
-    elif(letra == "m"):
+    elif(letra == "M"):
         print("M - Masculino")
     else:
         print("Sexo Inválido")
@@ -141,5 +141,19 @@ def ordem_decrescente():
         else:
             print("Ordem decrescente: {}, {}, {}".format(numero_tres, numero_dois, numero_um))
 
+#10.Faça um Programa que pergunte em que turno você estuda.
+#Peça para digitar M-matutino ou V-Vespertino ou N- Noturno. Imprima a mensagem "Bom Dia!", "Boa Tarde!" ou "Boa Noite!" ou "Valor Inválido!", conforme o caso.
+
+def turno():
+    letra = input("Digite M se você estuda de manhã, V se estuda de tarde ou N se estuda de noite: ").upper().strip()
+    if (letra == "M"):
+        print("Bom dia!")
+    elif (letra == "V"):
+        print("Boa tarde!")
+    elif(letra == "N"):
+        print("Boa noite!")
+    else:
+        print("Valor Inválido!")
+
 if(__name__ == "__main__"):
-    ordem_decrescente()
+    turno()
