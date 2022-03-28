@@ -195,6 +195,103 @@ def reajuste():
 #326 = 3 centenas, 2 dezenas e 6 unidades
 #12 = 1 dezena e 2 unidades Testar com: 326, 300, 100, 320, 310,305, 301, 101, 311, 111, 25, 20, 10, 21, 11, 1, 7 e 16
 
+#12.Faça um programa para o cálculo de uma folha de pagamento, sabendo que os descontos são do Imposto de Renda, que depende do salário bruto (conforme tabela abaixo) e 3% para o Sindicato e que o FGTS corresponde a 11% do Salário Bruto, mas não é descontado (é a empresa que deposita). O Salário Líquido corresponde ao Salário Bruto menos os descontos. O programa deverá pedir ao usuário o valor da sua hora e a quantidade de horas trabalhadas no mês.
+#Desconto do IR:
+#Salário Bruto até 900 (inclusive) - isento
+#Salário Bruto até 1500 (inclusive) - desconto de 5%
+#Salário Bruto até 2500 (inclusive) - desconto de 10%
+#Salário Bruto acima de 2500 - desconto de 20% Imprima na tela as informações, dispostas conforme o exemplo abaixo. No exemplo o valor da hora é 5 e a quantidade de hora é 220.
+#Salário Bruto: (5 * 220)        : R$ 1100,00
+#(-) IR (5%)                     : R$   55,00
+#(-) INSS ( 10%)                 : R$  110,00
+#FGTS (11%)                      : R$  121,00
+#Total de descontos              : R$  165,00
+#Salário Liquido                 : R$  935,00
+
+def folha_pagamento():
+    dinheiro_hora = float(input("Quanto você ganha por hora? "))
+    numero_horas = float(input("Quantas horas você trabalha no mês? "))
+
+    salario_bruto = dinheiro_hora * numero_horas
+
+    if(salario_bruto <= 900):
+        percentual = 0
+        valor_ir = 0
+    elif(salario_bruto > 900 and salario_bruto <= 1500):
+        percentual = 5
+        valor_ir = (5 / 100) * salario_bruto
+    elif(salario_bruto > 1500 and salario_bruto <= 2500):
+        percentual = 10
+        valor_ir = (10 / 100) * salario_bruto
+    elif(salario_bruto > 2500):
+        percentual = 20
+        valor_ir = (20 / 100) * salario_bruto
+
+    valor_inss = (10 / 100) * salario_bruto
+    valor_fgts = (11 / 100) * salario_bruto
+    descontos = valor_ir + valor_inss
+    salario_liquido = salario_bruto - valor_ir - valor_inss
+
+    print("Salário Bruto: ({} * {})    : R$ {:.2f}".format(dinheiro_hora, numero_horas, salario_bruto))
+    print("(-) IR ({}%)                    : R$  {:.2f}".format(percentual, valor_ir))
+    print("(-) INSS ( 10%)                 : R$  {:.2f}".format(valor_inss))
+    print("FGTS (11%)                      : R$  {:.2f}".format(valor_fgts))
+    print("Total de descontos              : R$  {:.2f}".format(descontos))
+    print("Salário Liquido                 : R$  {:.2f}".format(salario_liquido))
+
+
+#13. Faça um Programa que leia um número e exiba o dia correspondente da semana. (1-Domingo, 2- Segunda, etc.), se digitar outro valor deve aparecer valor inválido.
+
+def dia_semana():
+
+    dia = int(input("Digite o número da semana(1 a 7): "))
+
+    if(dia == 1):
+        print("{} - Domingo".format(dia))
+    elif (dia == 2):
+        print("{} - Segunda".format(dia))
+    elif (dia == 3):
+        print("{} - Terça".format(dia))
+    elif (dia == 4):
+        print("{} - Quarta".format(dia))
+    elif (dia == 5):
+        print("{} - Quinta".format(dia))
+    elif (dia == 6):
+        print("{} - Sexta".format(dia))
+    elif (dia == 7):
+        print("{} - Sábado".format(dia))
+    else:
+        print("Valor Inválido!")
+
+#14. Faça um programa que lê as duas notas parciais obtidas por um aluno numa disciplina ao longo de um semestre, e calcule a sua média. A atribuição de conceitos obedece à tabela abaixo:
+#Média de Aproveitamento  Conceito
+# Entre 9.0 e 10.0        A
+# Entre 7.5 e 9.0         B
+# Entre 6.0 e 7.5         C
+# Entre 4.0 e 6.0         D
+# Entre 4.0 e zero        E
+
+def media():
+    nota_um = float(input("Digite a primeira nota: "))
+    nota_dois = float(input("Digite a segunda nota: "))
+    media = (nota_um + nota_dois)/2
+
+    if(media >= 9.0 and media <=10.0):
+        conceito = "A"
+    elif (media >= 7.5 and media < 9.0):
+        conceito = "B"
+    elif (media >= 6.5 and media < 7.0):
+        conceito = "C"
+    elif (media >= 4.0 and media < 6.0):
+        conceito = "D"
+    elif (media >= 0.0 and media < 4.0):
+        conceito = "E"
+
+    print("A média das notas é {:.2f}! - Conceito {}".format(media, conceito))
+
+if(__name__ == "__main__"):
+    media()
+
 def casas_numero():
     numero = int(input("Digite o número(1 a 1000): "))
 
@@ -240,5 +337,3 @@ def casas_numero():
 
     print("{} = {}{}{}{}{}.".format(numero, centena, separador1, dezena, separador2, unidade))
 
-if(__name__ == "__main__"):
-    casas_numero()
