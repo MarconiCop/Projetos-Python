@@ -198,20 +198,47 @@ def reajuste():
 def casas_numero():
     numero = int(input("Digite o número(1 a 1000): "))
 
-    if(numero < 10):
-        print("{} = {} unidade(s).".format(numero, numero))
+    unidade = numero % 10
+    dezena = (numero % 100) // 10
+    centena = numero // 100
+    separador1 = ""
+    separador2 = ""
 
-    if(numero >= 10 and numero < 100):
-        dezena = int(numero / 10)
-        unidade = int(numero - 10 * dezena)
-        print("{} = {} dezena(s) e {} unidade(s).".format(numero, dezena, unidade))
+    if(centena > 0 and dezena > 0 and unidade > 0):
+        separador1 = " , "
+        separador2 = " e "
+    elif (centena > 0 and dezena > 0):
+        separador1 = " e "
+        separador2 = ""
+    elif(centena > 0 and unidade > 0) or (dezena > 0 and unidade > 0):
+        separador1 = ""
+        separador2 = " e "
 
-    if(numero >= 100 and numero < 1000):
-        centena = int(numero/100)
-        dezena = int((numero % 100) / 10)
-        unidade = numero % 10
+    if(centena > 0):
+        if(centena == 1):
+            centena = "1 centena"
+        else:
+            centena = "{} centenas".format(centena)
+    else:
+        centena = ""
 
-        print("{} = {} centena(s), {} dezena(s) e {} unidade(s).".format(numero, centena, dezena, unidade))
+    if(dezena > 0):
+        if(dezena == 1):
+            dezena = "1 dezena"
+        else:
+            dezena = "{} dezenas".format(dezena)
+    else:
+        dezena = ""
+
+    if(unidade > 0):
+        if(unidade == 1):
+            unidade = "1 unidade"
+        else:
+            unidade = "{} unidades".format(unidade)
+    else:
+        unidade = ""
+
+    print("{} = {}{}{}{}{}.".format(numero, centena, separador1, dezena, separador2, unidade))
 
 if(__name__ == "__main__"):
     casas_numero()
