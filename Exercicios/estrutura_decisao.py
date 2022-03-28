@@ -289,8 +289,51 @@ def media():
 
     print("A média das notas é {:.2f}! - Conceito {}".format(media, conceito))
 
+
+#15Faça um Programa que peça os 3 lados de um triângulo. O programa deverá informar se os valores podem ser um triângulo. Indique, caso os lados formem um triângulo, se o mesmo é: equilátero, isósceles ou escaleno.
+#Dicas:
+#Três lados formam um triângulo quando a soma de quaisquer dois lados for maior que o terceiro;
+#Triângulo Equilátero: três lados iguais;
+#Triângulo Isósceles: quaisquer dois lados iguais;
+#Triângulo Escaleno: três lados diferentes;
+
+def triangulo():
+
+    lado_um = int(input("Digite o primeiro lado do triângulo: "))
+    lado_dois = int(input("Digite o segundo lado do triângulo: "))
+    lado_tres = int(input("Digite o terceiro lado do triângulo: "))
+
+    if(verifica_triangulo(lado_um, lado_dois, lado_tres)):
+
+        if(verifica_equilatero(lado_um, lado_dois, lado_tres)):
+            return 0
+        verifica_isoceles(lado_um, lado_dois, lado_tres)
+        verifica_escaleno(lado_um, lado_dois, lado_tres)
+    else:
+        print("Não é um triângulo válido!")
+
+def verifica_triangulo(lado_um, lado_dois, lado_tres):
+    if((lado_um + lado_dois > lado_tres) and (lado_dois + lado_tres > lado_um) and (lado_tres + lado_um > lado_dois)):
+        print("É um triângulo válido!")
+        return True
+
+def verifica_equilatero(lado_um, lado_dois, lado_tres):
+    if(lado_um == lado_dois and lado_um == lado_tres and lado_dois == lado_tres):
+        print("É um triângulo equilátero!")
+        return True
+
+def verifica_isoceles(lado_um, lado_dois, lado_tres):
+    if(lado_um == lado_dois or lado_um == lado_tres or lado_dois == lado_tres):
+        print("É um triângulo isóceles!")
+
+def verifica_escaleno(lado_um, lado_dois, lado_tres):
+    if(lado_um != lado_dois and lado_dois != lado_tres and lado_tres != lado_um):
+        print("É um triângulo Escaleno!")
+
+
+
 if(__name__ == "__main__"):
-    media()
+    triangulo()
 
 def casas_numero():
     numero = int(input("Digite o número(1 a 1000): "))
