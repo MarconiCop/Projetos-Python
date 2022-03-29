@@ -1,3 +1,6 @@
+import re
+import math
+
 #1.Faça um Programa que peça dois números e imprima o maior deles.
 
 def maior_numero():
@@ -330,10 +333,114 @@ def verifica_escaleno(lado_um, lado_dois, lado_tres):
     if(lado_um != lado_dois and lado_dois != lado_tres and lado_tres != lado_um):
         print("É um triângulo Escaleno!")
 
+#16.Faça um programa que calcule as raízes de uma equação do segundo grau, na forma ax2 + bx + c. O programa deverá pedir os valores de a, b e c e fazer as consistências, informando ao usuário nas seguintes situações:
+#Se o usuário informar o valor de A igual a zero, a equação não é do segundo grau e o programa não deve fazer pedir os demais valores, sendo encerrado;
+#Se o delta calculado for negativo, a equação não possui raizes reais. Informe ao usuário e encerre o programa;
+#Se o delta calculado for igual a zero a equação possui apenas uma raiz real; informe-a ao usuário;
+#Se o delta for positivo, a equação possui duas raiz reais; informe-as ao usuário;
+
+def raiz():
+
+    a = int(input("Digite o valor de 'a': "))
+    if(a == 0):
+        return 0
+    else:
+        b = int(input("Digite o valor de 'b': "))
+        c = int(input("Digite o valor de 'c': "))
+
+        delta = ((b * b) - (4 * a * c))
+
+        if(delta < 0):
+            return 0
+
+        elif(delta == 0):
+
+            raiz_unica = float((-1 * b) / (2 * a))
+            print(raiz_unica)
+
+        elif(delta > 0):
+            raiz_um = float(((-1 * b + math.sqrt(delta)) / (2 * a)))
+            raiz_dois = float(((-1 * b - math.sqrt(delta)) / (2 * a)))
+
+            print(raiz_um, raiz_dois)
 
 
-if(__name__ == "__main__"):
-    triangulo()
+if (__name__ == "__main__"):
+    raiz()
+
+
+#17.Faça um Programa que peça um número correspondente a um determinado ano e em seguida informe se este ano é ou não bissexto.
+
+def resulta_bissexto():
+    ano = int(input("Digite o ano no formato 'aaaa': "))
+    if(e_bissexto(ano)):
+        print("O ano é bissexto!")
+    else:
+        print("O ano não é bissexto!")
+
+def e_bissexto(ano):
+
+    if(regra_um(ano) or regra_dois(ano)):
+        return True
+
+def regra_um(ano):
+
+    if(ano % 4 == 0 and ano % 100 != 0):
+        return True
+
+def regra_dois(ano):
+    if(ano % 4 == 0 and ano % 100 == 0 and ano % 400 == 0):
+        return True
+
+#18.Faça um Programa que peça uma data no formato dd/mm/aaaa e determine se a mesma é uma data válida.
+
+def verifica_data():
+
+    data = input("Digite a data no formato dd/mm/aaaa: ")
+
+    numeros_data = [int(numero) for numero in re.findall(r'-?\d+\.?\d*', data)]
+
+    dia = numeros_data[0]
+    mes = numeros_data[1]
+    ano = numeros_data[2]
+
+    tupla_meses_trinta_um_dias = (1, 3, 5, 7, 9, 10, 12)
+    tupla_meses_trinta_dias = (4, 6, 8, 11)
+
+    if(mes in tupla_meses_trinta_um_dias):
+        if(dia <= 31):
+            if(ano >= 1000 and ano <= 9999):
+                print("Data Válida!")
+            else:
+                print("Data inválida!")
+        else:
+            print("Data Inválida")
+
+    elif(mes in tupla_meses_trinta_dias):
+        if(dia <= 30):
+            if(ano >= 1000 and ano <= 9999):
+                print("Data Válida!")
+        else:
+            print("Data inválida!")
+
+    elif(mes == 2):
+        if(e_bissexto(ano)):
+            if(dia <= 29):
+                print("Data válida!")
+            else:
+                print("Data Inválida!")
+        else:
+            if(dia <=28):
+                print("Data válida!")
+            else:
+                print("Data Inválida!")
+    else:
+        print("Data Inválida!")
+
+#19.Faça um Programa que leia um número inteiro menor que 1000 e imprima a quantidade de centenas, dezenas e unidades do mesmo.
+#Observando os termos no plural a colocação do "e", da vírgula entre outros. Exemplo:
+#326 = 3 centenas, 2 dezenas e 6 unidades
+#12 = 1 dezena e 2 unidades Testar com: 326, 300, 100, 320, 310,305, 301, 101, 311, 111, 25, 20, 10, 21, 11, 1, 7 e 16
 
 def casas_numero():
     numero = int(input("Digite o número(1 a 1000): "))
@@ -379,4 +486,28 @@ def casas_numero():
         unidade = ""
 
     print("{} = {}{}{}{}{}.".format(numero, centena, separador1, dezena, separador2, unidade))
+
+#20.Faça um Programa para leitura de três notas parciais de um aluno. O programa deve calcular a média alcançada por aluno e presentar:
+#A mensagem "Aprovado", se a média for maior ou igual a 7, com a respectiva média alcançada;
+#A mensagem "Reprovado", se a média for menor do que 7, com a respectiva média alcançada;
+#A mensagem "Aprovado com Distinção", se a média for igual a 10.
+
+def notas():
+    nota_um = float(input("Digite a primeira nota: "))
+    nota_dois = float(input("Digite a segunda nota: "))
+    nota_tres = float(input("Digite a terceira nota: "))
+    media = (nota_um + nota_dois + nota_tres) / 3
+
+    if (media >= 7 and media < 10):
+        print("Aprovado!")
+    elif(media < 7):
+        print("Reprovado!")
+    elif (media == 10):
+        print("Aprovado com distinção!")
+    else:
+        print("Média fora do intervalo!")
+
+
+
+
 
