@@ -364,11 +364,6 @@ def raiz():
 
             print(raiz_um, raiz_dois)
 
-
-if (__name__ == "__main__"):
-    raiz()
-
-
 #17.Faça um Programa que peça um número correspondente a um determinado ano e em seguida informe se este ano é ou não bissexto.
 
 def resulta_bissexto():
@@ -506,6 +501,186 @@ def notas():
         print("Aprovado com distinção!")
     else:
         print("Média fora do intervalo!")
+
+#21.Faça um Programa para um caixa eletrônico. O programa deverá perguntar ao usuário a valor do saque e depois informar quantas notas de cada valor serão fornecidas.
+#As notas disponíveis serão as de 1, 5, 10, 50 e 100 reais. O valor mínimo é de 10 reais e o máximo de 600 reais. O programa não deve se preocupar com a quantidade de notas existentes na máquina.
+#Exemplo 1: Para sacar a quantia de 256 reais, o programa fornece duas notas de 100, uma nota de 50, uma nota de 5 e uma nota de 1;
+#Exemplo 2: Para sacar a quantia de 399 reais, o programa fornece três notas de 100, uma nota de 50, quatro notas de 10, uma nota de 5 e quatro notas de 1.
+
+
+def caixa_eletronico():
+
+    saque = int(input("Digite o valor do saque(10 a 600): "))
+    if(saque >= 10 and saque <= 600):
+        notas_de_cem = int(saque / 100)
+        notas_de_cinquenta = int((saque % 100) / 50)
+        notas_de_dez = int(((saque % 100) % 50) / 10)
+        notas_de_cinco = int((((saque % 100) % 50) % 10) / 5)
+        notas_de_um = int((((saque % 100) % 50) % 10) % 5)
+
+        if(notas_de_cem != 0):
+            print("Serão fornecidas {} nota(s) de cem".format(notas_de_cem))
+        if (notas_de_cinquenta != 0):
+            print("Serão fornecidas {} nota(s) de cinquenta".format(notas_de_cinquenta))
+        if (notas_de_dez != 0):
+            print("Serão fornecidas {} nota(s) de dez".format(notas_de_dez))
+        if (notas_de_cinco != 0):
+            print("Serão fornecidas {} nota(s) de cinco".format(notas_de_cinco))
+        if (notas_de_um != 0):
+            print("Serão fornecidas {} nota(s) de um".format(notas_de_um))
+
+#22.Faça um Programa que peça um número inteiro e determine se ele é par ou impar. Dica: utilize o operador módulo (resto da divisão).
+
+def par_ou_impar():
+    numero = int(input("Digite um número: "))
+    if(numero % 2 == 0):
+        print("O número é par!")
+    else:
+        print("O número é impar!")
+
+#23.Faça um Programa que peça um número e informe se o número é inteiro ou decimal. Dica: utilize uma função de arredondamento.
+
+def arredonda(numero):
+
+    numero_arredondado = (round(numero))
+
+    if(numero_arredondado != numero):
+        return True
+
+def inteiro_ou_decimal():
+    numero = float(input("Digite um número: "))
+
+    if(arredonda(numero)):
+        print("O número é decimal!")
+    else:
+        print("O número é inteiro!")
+
+#24.Faça um Programa que leia 2 números e em seguida pergunte ao usuário qual operação ele deseja realizar. O resultado da operação deve ser acompanhado de uma frase que diga se o número é:
+#par ou ímpar;
+#positivo ou negativo;
+#inteiro ou decimal.
+
+def operacoes():
+    numero_um = float(input("Digite o primeiro número: "))
+    numero_dois = float(input("Digite o segundo número: "))
+
+
+
+    print("---------------------------------------")
+    print("1.*****************SOMA****************")
+    print("2.**************SUBTRAÇÃO**************")
+    print("3.************MULTIPLICAÇÃO************")
+    print("4.***************DIVISÃO***************")
+    print("---------------------------------------")
+
+    operacao = int(input("Escolha a operação que deseja realizar:"))
+
+    if(operacao == 1):
+        soma = numero_um + numero_dois
+        if (soma % 2 == 0):
+            print("O número é par!")
+        else:
+            print("O número é impar!")
+
+        if (soma > 0):
+            print("O número é positivo!")
+        else:
+            print("O número é negativo!")
+
+        if (arredonda(soma)):
+            print("O número é decimal!")
+        else:
+            print("O número é inteiro!")
+
+    elif(operacao == 2):
+        subtracao = numero_um - numero_dois
+        if (subtracao % 2 == 0):
+            print("O número é par!")
+        else:
+            print("O número é impar!")
+
+        if (subtracao > 0):
+            print("O número é positivo!")
+        else:
+            print("O número é negativo!")
+
+        if (arredonda(subtracao)):
+            print("O número é decimal!")
+        else:
+            print("O número é inteiro!")
+    elif (operacao == 3):
+        multiplicacao = numero_um * numero_dois
+        if (multiplicacao % 2 == 0):
+            print("O número é par!")
+        else:
+            print("O número é impar!")
+
+        if (multiplicacao > 0):
+            print("O número é positivo!")
+        else:
+            print("O número é negativo!")
+
+        if (arredonda(multiplicacao)):
+            print("O número é decimal!")
+        else:
+            print("O número é inteiro!")
+    elif (operacao == 4):
+        divisao = numero_um / numero_dois
+        if (divisao % 2 == 0):
+            print("O número é par!")
+        else:
+            print("O número é impar!")
+
+        if (divisao > 0):
+            print("O número é positivo!")
+        else:
+            print("O número é negativo!")
+
+        if (arredonda(divisao)):
+            print("O número é decimal!")
+        else:
+            print("O número é inteiro!")
+
+#25.Faça um programa que faça 5 perguntas para uma pessoa sobre um crime. As perguntas são:
+#"Telefonou para a vítima?"
+#"Esteve no local do crime?"
+#"Mora perto da vítima?"
+#"Devia para a vítima?"
+#"Já trabalhou com a vítima?"
+#O programa deve no final emitir uma classificação sobre a participação da pessoa no crime.
+#Se a pessoa responder positivamente a 2 questões ela deve ser classificada como "Suspeita", entre 3 e 4 como "Cúmplice" e 5 como "Assassino". Caso contrário, ele será classificado como "Inocente".
+
+def crime():
+    contador = 0
+    pergunta_um = input("Telefonou para a vítima? Responda com SIM ou NÃO: ").strip().upper()
+    pergunta_dois = input("Esteve no local do crime? Responda com SIM ou NÃO: ").strip().upper()
+    pergunta_tres = input("Mora perto da vítima? Responda com SIM ou NÃO: ").strip().upper()
+    pergunta_quatro = input("Devia para a vítima? Responda com SIM ou NÃO: ").strip().upper()
+    pergunta_cinco = input("Já trabalhou com a vítima? Responda com SIM ou NÃO: ").strip().upper()
+
+    if(pergunta_um == "SIM"):
+        contador += 1
+    if (pergunta_dois == "SIM"):
+        contador += 1
+    if (pergunta_tres == "SIM"):
+        contador += 1
+    if (pergunta_quatro == "SIM"):
+        contador += 1
+    if (pergunta_cinco == "SIM"):
+        contador += 1
+
+    if(contador == 1):
+        print("Você é inocente!")
+    elif(contador == 2):
+        print("Você é suspeito(a)!")
+    elif(contador == 3 or contador == 4):
+        print("Você é cúmplice!")
+    elif(contador == 5):
+        print("Você é assassino(a)!")
+
+if (__name__ == "__main__"):
+      crime()
+
 
 
 
