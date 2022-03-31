@@ -677,9 +677,165 @@ def crime():
         print("Você é cúmplice!")
     elif(contador == 5):
         print("Você é assassino(a)!")
+#26.Um posto está vendendo combustíveis com a seguinte tabela de descontos:
+# Álcool:
+# até 20 litros, desconto de 3% por litro
+# acima de 20 litros, desconto de 5% por litro
+# Gasolina:
+# até 20 litros, desconto de 4% por litro
+# acima de 20 litros, desconto de 6% por litro Escreva um algoritmo que leia o número de litros vendidos, o tipo de combustível (codificado da seguinte forma: A-álcool, G-gasolina),
+# calcule e imprima o valor a ser pago pelo cliente sabendo-se que o preço do litro da gasolina é R$ 2,50 o preço do litro do álcool é R$ 1,90.
 
+def posto_de_combustivel():
+
+    litros_vendidos = float(input("Digite a quantidade de litros que você deseja: "))
+    tipo_de_combustivel = input("Digite o tipo de combustível que você deseja. A-álcool, G-gasolina: ").strip().upper()
+
+    if(tipo_de_combustivel == "A"):
+        preco_total = litros_vendidos * 1.90
+        if(litros_vendidos <= 20):
+            desconto_por_litro = (3 / 100) * 1.90
+            desconto_total = desconto_por_litro * litros_vendidos
+            preco_com_desconto = preco_total - desconto_total
+            print("O preço com desconto é {:.2f}".format(preco_com_desconto))
+        elif(litros_vendidos > 20):
+            desconto_por_litro = (5 / 100) * 1.90
+            desconto_total = desconto_por_litro * litros_vendidos
+            preco_com_desconto = preco_total - desconto_total
+            print("O preço com desconto é {:.2f}".format(preco_com_desconto))
+
+    elif(tipo_de_combustivel == "G"):
+        preco_total = litros_vendidos * 2.50
+        if (litros_vendidos <= 20):
+            desconto_por_litro = (4 / 100) * 2.50
+            desconto_total = desconto_por_litro * litros_vendidos
+            preco_com_desconto = preco_total - desconto_total
+            print("O preço com desconto é {:.2f}".format(preco_com_desconto))
+        elif (litros_vendidos > 20):
+            desconto_por_litro = (6 / 100) * 2.50
+            desconto_total = desconto_por_litro * litros_vendidos
+            preco_com_desconto = preco_total - desconto_total
+            print("O preço com desconto é {:.2f}".format(preco_com_desconto))
+
+#27.Uma fruteira está vendendo frutas com a seguinte tabela de preços:
+#                       Até 5 Kg           Acima de 5 Kg
+# Morango         R$ 2,50 por Kg          R$ 2,20 por Kg
+# Maçã            R$ 1,80 por Kg          R$ 1,50 por Kg
+# Se o cliente comprar mais de 8 Kg em frutas ou o valor total da compra ultrapassar R$ 25,00, receberá ainda um desconto de 10% sobre este total.
+# Escreva um algoritmo para ler a quantidade (em Kg) de morangos e a quantidade (em Kg) de maças adquiridas e escreva o valor a ser pago pelo cliente.
+
+def fruteira():
+    quantidade_de_morangos = int(input("Digite a quantidade de morangos a ser comprada(Kg) : "))
+    quantidade_de_macas = int(input("Digite a quantidade de maçãs a ser comprada(Kg): "))
+
+    if(quantidade_de_morangos <= 5):
+        valor_a_pagar_de_morangos = quantidade_de_morangos * 2.50
+    else:
+        valor_a_pagar_de_morangos = quantidade_de_morangos * 2.20
+
+    if(quantidade_de_macas <= 5):
+        valor_a_pagar_de_macas = quantidade_de_macas * 1.80
+    else:
+        valor_a_pagar_de_macas = quantidade_de_macas * 1.50
+
+    valor_a_pagar_total = valor_a_pagar_de_morangos + valor_a_pagar_de_macas
+
+    if(quantidade_de_morangos + quantidade_de_macas > 8 or valor_a_pagar_de_morangos + valor_a_pagar_de_macas > 25):
+        desconto_valor_a_pagar_total = valor_a_pagar_total * (10 / 100)
+        valor_a_pagar_total = valor_a_pagar_total - desconto_valor_a_pagar_total
+        print("O valor a pagar total é {:.2f}".format(valor_a_pagar_total))
+    else:
+        print("O valor a pagar total é {:.2f}".format(valor_a_pagar_total))
+
+#28. O Hipermercado Tabajara está com uma promoção de carnes que é imperdível. Confira:
+#                       Até 5 Kg           Acima de 5 Kg
+# File Duplo      R$ 4,90 por Kg          R$ 5,80 por Kg
+# Alcatra         R$ 5,90 por Kg          R$ 6,80 por Kg
+# Picanha         R$ 6,90 por Kg          R$ 7,80 por Kg
+# Para atender a todos os clientes, cada cliente poderá levar apenas um dos tipos de carne da promoção, porém não há limites para a quantidade de carne por cliente.
+# Se compra for feita no cartão Tabajara o cliente receberá ainda um desconto de 5% sobre o total da compra.
+# Escreva um programa que peça o tipo e a quantidade de carne comprada pelo usuário e gere um cupom fiscal,
+# contendo as informações da compra: tipo e quantidade de carne, preço total, tipo de pagamento, valor do desconto e valor a pagar.
+
+def acougue():
+    tipo_de_carne = input("Digite o tipo de carne comprada(F - Filé Duplo, A - Alcatra, P - Picanha): ").strip().upper()
+    quantidade_de_carne_comprada = int(input("Digite a quantidade de carne comprada(Kg): "))
+    cartao = input("Usará o cartão Tabajara? (Sim ou Não): ").strip().upper()
+
+    if(tipo_de_carne == "F"):
+        if(quantidade_de_carne_comprada <= 5):
+            if(cartao == "SIM"):
+                preco = quantidade_de_carne_comprada * 4.90
+                desconto = (5 / 100 * preco)
+                preco_com_desconto = preco - desconto
+                print("Tipo: Filé Duplo, Quantidade de carne: {} Kg, Preço Total: {:.2f}, Tipo de Pagamento: Cartão Tabajara, Valor do Desconto: {:.2f}, Valor a Pagar: {:.2f}".format(quantidade_de_carne_comprada, preco,desconto, preco_com_desconto))
+            else:
+                preco = quantidade_de_carne_comprada * 4.90
+                desconto = 0
+                preco_com_desconto = preco
+                print("Tipo: Filé Duplo, Quantidade de carne: {} Kg, Preço Total: {:.2f}, Tipo de Pagamento: Dinheiro, Valor do Desconto: {:.2f}, Valor a Pagar: {:.2f}".format(quantidade_de_carne_comprada, preco, desconto, preco_com_desconto))
+        elif(quantidade_de_carne_comprada > 5):
+            if (cartao == "SIM"):
+                preco = quantidade_de_carne_comprada * 5.80
+                desconto = (5 / 100 * preco)
+                preco_com_desconto = preco - desconto
+                print(
+                    "Tipo: Filé Duplo, Quantidade de carne: {} Kg, Preço Total: {:.2f}, Tipo de Pagamento: Cartão Tabajara, Valor do Desconto: {:.2f}, Valor a Pagar: {:.2f}".format(quantidade_de_carne_comprada, preco, desconto, preco_com_desconto))
+            else:
+                preco = quantidade_de_carne_comprada * 5.80
+                desconto = 0
+                preco_com_desconto = preco
+                print("Tipo: Filé Duplo, Quantidade de carne: {} Kg, Preço Total: {:.2f}, Tipo de Pagamento: Dinheiro, Valor do Desconto: {:.2f}, Valor a Pagar: {:.2f}".format(quantidade_de_carne_comprada, preco, desconto, preco_com_desconto))
+
+    if (tipo_de_carne == "A"):
+        if (quantidade_de_carne_comprada <= 5):
+            if (cartao == "SIM"):
+                preco = quantidade_de_carne_comprada * 5.90
+                desconto = (5 / 100 * preco)
+                preco_com_desconto = preco - desconto
+                print("Tipo: Alcatra, Quantidade de carne: {} Kg, Preço Total: {:.2f}, Tipo de Pagamento: Cartão Tabajara, Valor do Desconto: {:.2f}, Valor a Pagar: {:.2f}".format(quantidade_de_carne_comprada, preco, desconto, preco_com_desconto))
+            else:
+                preco = quantidade_de_carne_comprada * 5.90
+                desconto = 0
+                preco_com_desconto = preco
+                print( "Tipo: Alcatra, Quantidade de carne: {} Kg, Preço Total: {:.2f}, Tipo de Pagamento: Dinheiro, Valor do Desconto: {:.2f}, Valor a Pagar: {:.2f}".format(quantidade_de_carne_comprada, preco, desconto, preco_com_desconto))
+        elif (quantidade_de_carne_comprada > 5):
+            if (cartao == "SIM"):
+                preco = quantidade_de_carne_comprada * 6.80
+                desconto = (5 / 100 * preco)
+                preco_com_desconto = preco - desconto
+                print("Tipo: Alcatra, Quantidade de carne: {} Kg, Preço Total: {:.2f}, Tipo de Pagamento: Cartão Tabajara, Valor do Desconto: {:.2f}, Valor a Pagar: {:.2f}".format(quantidade_de_carne_comprada, preco, desconto, preco_com_desconto))
+            else:
+                preco = quantidade_de_carne_comprada * 6.80
+                desconto = 0
+                preco_com_desconto = preco
+                print("Tipo: Alcatra, Quantidade de carne: {} Kg, Preço Total: {:.2f}, Tipo de Pagamento: Dinheiro, Valor do Desconto: {:.2f}, Valor a Pagar: {:.2f}".format(quantidade_de_carne_comprada, preco, desconto, preco_com_desconto))
+
+    if (tipo_de_carne == "P"):
+        if (quantidade_de_carne_comprada <= 5):
+            if (cartao == "SIM"):
+                preco = quantidade_de_carne_comprada * 6.90
+                desconto = (5 / 100 * preco)
+                preco_com_desconto = preco - desconto
+                print("Tipo: Picanha, Quantidade de carne: {} Kg, Preço Total: {:.2f}, Tipo de Pagamento: Cartão Tabajara, Valor do Desconto: {:.2f}, Valor a Pagar: {:.2f}".format(quantidade_de_carne_comprada, preco, desconto, preco_com_desconto))
+            else:
+                preco = quantidade_de_carne_comprada * 6.90
+                desconto = 0
+                preco_com_desconto = preco
+                print( "Tipo: Picanha, Quantidade de carne: {} Kg, Preço Total: {:.2f}, Tipo de Pagamento: Dinheiro, Valor do Desconto: {:.2f}, Valor a Pagar: {:.2f}".format(quantidade_de_carne_comprada, preco, desconto, preco_com_desconto))
+        elif (quantidade_de_carne_comprada > 5):
+            if (cartao == "SIM"):
+                preco = quantidade_de_carne_comprada * 7.80
+                desconto = (5 / 100 * preco)
+                preco_com_desconto = preco - desconto
+                print("Tipo: Picanha, Quantidade de carne: {} Kg, Preço Total: {:.2f}, Tipo de Pagamento: Cartão Tabajara, Valor do Desconto: {:.2f}, Valor a Pagar: {:.2f}".format(quantidade_de_carne_comprada, preco, desconto, preco_com_desconto))
+            else:
+                preco = quantidade_de_carne_comprada * 7.80
+                desconto = 0
+                preco_com_desconto = preco
+                print("Tipo: Picanha, Quantidade de carne: {} Kg, Preço Total: {:.2f}, Tipo de Pagamento: Dinheiro, Valor do Desconto: {:.2f}, Valor a Pagar: {:.2f}".format(quantidade_de_carne_comprada, preco, desconto, preco_com_desconto))
 if (__name__ == "__main__"):
-      crime()
+     acougue()
 
 
 
