@@ -1,3 +1,6 @@
+import math
+
+
 # 1. Faça um programa que peça uma nota, entre zero e dez. Mostre uma mensagem caso o valor seja inválido e continue
 # a pedir até que o utilizador informe um valor válido.
 
@@ -122,5 +125,115 @@ def propria_populacao():
         print("Os anos necessários para que a população de A passe B é {} ano(s)".format(anos_necessarios))
 
 
+# 6. Faça um programa que imprima na tela os números de 1 a 20, um abaixo do outro. Depois modifique o programa para
+# ele mostrar os números um ao lado do outro.
+
+def ler_numeros():
+    lista = []
+
+    for numero in range(1, 21):
+        print(numero)
+
+    for c in range(1, 21):
+        print(c, end=' ')
+    print()
+
+
+# 7. Faça um programa que leia 5 números e informe o maior número.
+
+def maior_numero():
+    lista = []
+    for numero in range(1, 6):
+        numero = int(input("Digite o número: "))
+        lista.append(numero)
+
+    print("O maior número da lista é", max(lista), end="!")
+
+
+# 8. Faça um programa que leia 5 números e informe a soma e a média dos números.
+
+def soma_e_media():
+    lista = []
+    for numero in range(1, 6):
+        numero = int(input("Digite o número: "))
+        lista.append(numero)
+
+    print("A soma da lista é ", sum(lista))
+    print("A média da lista é", (sum(lista) / 5))
+
+
+# 9. Faça um programa que imprima na tela apenas os números ímpares entre 1 e 50.
+
+def impares():
+    lista = []
+    for numero in range(1, 51):
+        if numero % 2 != 0:
+            lista.append(numero)
+
+    print(lista)
+
+
+# 10. Faça um programa que receba dois números inteiros e gere os números inteiros que estão no intervalo compreendido
+# por eles.
+
+def intervalo():
+    lista = []
+    numero_um = int(input("Digite o primeiro número inteiro: "))
+    numero_dois = int(input("Digite o segundo número inteiro: "))
+
+    for numero in range(numero_um, numero_dois + 1):
+        lista.append(numero)
+
+    lista.remove(numero_um)
+    lista.remove(numero_dois)
+    print(lista)
+
+
+# 11. Altere o programa anterior para mostrar no final a soma dos números.
+
+def soma_intervalo():
+    lista = []
+    numero_um = int(input("Digite o primeiro número inteiro: "))
+    numero_dois = int(input("Digite o segundo número inteiro: "))
+
+    for numero in range(numero_um, numero_dois + 1):
+        lista.append(numero)
+
+    lista.remove(numero_um)
+    lista.remove(numero_dois)
+    print(sum(lista))
+
+
+# 12. Desenvolva um gerador de tabuada, capaz de gerar a tabuada de qualquer número inteiro entre 1 a 10. O utilizador
+# deve informar de qual numero ele deseja ver a tabuada. A saída deve ser conforme o exemplo abaixo: Tabuada de 5: 5
+# X 1 = 5 5 X 2 = 10
+...
+
+
+# 5 X 10 = 50
+
+def tabuada():
+    numero_tabuada = int(input("Digite o número entre 1 a 10: "))
+    print("Tabuada de {}".format(numero_tabuada))
+
+    for numero in range(1, 11):
+        print("{} X {} = {}".format(numero_tabuada, numero, numero_tabuada * numero))
+
+
+# 13. Faça um programa que peça dois números, base e expoente, calcule e mostre o primeiro número elevado ao segundo
+# número. Não utilize a função de potência da linguagem.
+
+def exponenciacao():
+    base = int(input("Digite a base: "))
+    expoente = int(input("Digite o expoente: "))
+
+    calculo = 1
+
+    for numero in range(0, expoente):
+        calculo = calculo * base
+
+    print(calculo)
+
+
 if __name__ == "__main__":
-    propria_populacao()
+    exponenciacao()
