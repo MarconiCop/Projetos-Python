@@ -134,9 +134,10 @@ def ler_numeros():
     for numero in range(1, 21):
         print(numero)
 
-    for c in range(1, 21):
-        print(c, end=' ')
-    print()
+    lista = []
+    for numero in range(1, 21):
+        lista.append(numero)
+    print(lista)
 
 
 # 7. Faça um programa que leia 5 números e informe o maior número.
@@ -235,5 +236,52 @@ def exponenciacao():
     print(calculo)
 
 
+# 14. Faça um programa que peça 10 números inteiros, calcule e mostre a quantidade de números pares e a quantidade de
+# números impares.
+
+def pares_impares():
+    par = 0
+    impar = 0
+
+    for numero in range(1, 11):
+        numeros = int(input("Digite o número {}: ".format(numero)))
+        if numeros % 2 == 0:
+            par += 1
+        else:
+            impar += 1
+
+    print("Há {} número(s) par(es) e {} número(s) ímpar(es)!".format(par, impar))
+
+
+# 15. A série de Fibonacci é formada pela sequencing 1,1,2,3,5,8,13,21,34,55,... Faça um programa capaz de gerar a
+# série até o n−ésimo termo.
+
+def fibonacci():
+    lista = [1, 1]
+
+    n = int(input("Digite o enésimo termo: "))
+    for contador in range(0, n):
+        if contador > 1:
+            lista.append(lista[contador - 1] + lista[contador - 2])
+
+    print(lista)
+
+
+# 16. A série de Fibonacci é formada pela sequencing 0,1,1,2,3,5,8,13,21,34,55,... Faça um programa que gere a série
+# até que o valor seja maior que 500.
+
+def fibonacci_limite():
+    lista = [1, 1]
+
+    for contador in range(100):
+        if contador > 1:
+            lista.append(lista[contador - 1] + lista[contador - 2])
+            if lista[contador] > 500:
+                break
+
+    lista.pop()
+    print(lista)
+
+
 if __name__ == "__main__":
-    exponenciacao()
+    fibonacci_limite()
