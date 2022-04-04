@@ -283,5 +283,82 @@ def fibonacci_limite():
     print(lista)
 
 
+# 17. Faça um programa que calcule o fatorial de um número inteiro fornecido pelo usuário. Ex.: 5!=5.4.3.2.1=120
+
+def fatorial():
+    numero = int(input("Digite o número: "))
+    print(calcula_fatorial(numero))
+
+
+def calcula_fatorial(numero):
+    if numero != 1:
+        numero_menos_um = numero - 1
+        return numero * calcula_fatorial(numero_menos_um)
+    else:
+        return 1
+
+
+# 18. Faça um programa que, dado um conjunto de N números, determine o menor valor, o maior valor e a soma dos valores.
+
+def conjunto():
+    lista = []
+    tamanho = int(input("Digite o tamanho da sua lista: "))
+    for numero in range(0, tamanho):
+        numero_digitado = int(input("Digite o número: "))
+        lista.append(numero_digitado)
+
+    print(lista)
+    print("O menor número do conjunto é {}.".format(min(lista)))
+    print("O maior número do conjunto é {}.".format(max(lista)))
+    print("A soma  do conjunto é {}.".format(sum(lista)))
+
+
+# 19.Altere o programa anterior para que ele aceite apenas números entre 0 e 1000.
+
+def conjunto_limitado():
+    lista = []
+    tamanho = int(input("Digite o tamanho da sua lista: "))
+
+    for numero in range(tamanho):
+
+        numero_digitado = int(input("Digite o número: "))
+        if 0 < numero_digitado < 1000:
+            lista.append(numero_digitado)
+        else:
+            numero_invalido = True
+            while numero_invalido:
+                print("Número Inválido!")
+                numero_digitado = int(input("Digite o número: "))
+                if 0 < numero_digitado < 1000:
+                    lista.append(numero_digitado)
+                    numero_invalido = False
+
+    print(lista)
+    print("O menor número do conjunto é {}.".format(min(lista)))
+    print("O maior número do conjunto é {}.".format(max(lista)))
+    print("A soma  do conjunto é {}.".format(sum(lista)))
+
+
+# 20. Altere o programa de cálculo do fatorial, permitindo ao usuário calcular o fatorial várias vezes e limitando o
+# fatorial a números inteiros positivos e menores que 16.
+
+def fatorial_regra():
+    fat = True
+    while fat:
+        numero = int(input("Digite o número: "))
+        if 0 <= calcula_fatorial(numero) < 16:
+            print(calcula_fatorial(numero))
+        else:
+            print("O fatorial não é maior que 0 ou menor que 16!")
+
+
+def calcula_fatorial(numero):
+    if numero != 1 and numero != 0:
+        numero_menos_um = numero - 1
+        return numero * calcula_fatorial(numero_menos_um)
+    else:
+        return 1
+
+
 if __name__ == "__main__":
-    fibonacci_limite()
+    conjunto_limitado()
