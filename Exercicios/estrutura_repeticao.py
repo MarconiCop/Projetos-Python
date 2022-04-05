@@ -360,5 +360,50 @@ def calcula_fatorial(numero):
         return 1
 
 
+# 21. Faça um programa que peça um número inteiro e determine se ele é ou não um número primo. Um número primo é
+# aquele sendo divisível somente por ele mesmo e por 1.
+
+def numero_primo():
+    numero = int(input("Digite o número: "))
+    verifica = 0
+    for contador in range(1, numero):
+
+        if numero % contador == 0:
+            verifica = contador + 1
+
+    if verifica > 2 or numero == 0 or numero == 1:
+        print("O número {} não é primo!".format(numero))
+    else:
+        print("O número {} é primo!".format(numero))
+
+
+# 22. Altere o programa de cálculo dos números primos, informando, caso o número não seja primo, por quais número ele
+# é divisível.
+
+def numero_primo_multiplo():
+    numero = int(input("Digite o número: "))
+    verifica = 0
+    lista = []
+    for contador in range(1, numero):
+
+        if numero % contador == 0:
+            verifica = contador + 1
+
+    if verifica > 2 or numero == 0 or numero == 1:
+        print("O número {} não é primo!".format(numero))
+
+        for percorre in range(1, numero + 1):
+            if numero % percorre == 0:
+                lista.append(percorre)
+        if numero == 1:
+            print("O número 1 é apenas divísivel por ele mesmo.")
+        elif numero == 0:
+            print("Não existe divisão por 0, portanto não há números em que ele possa ser divisível.")
+        else:
+            print("O número é dívisivel por: {}".format(lista))
+    else:
+        print("O número {} é primo!".format(numero))
+
+
 if __name__ == "__main__":
-    conjunto_limitado()
+    numero_primo_multiplo()
