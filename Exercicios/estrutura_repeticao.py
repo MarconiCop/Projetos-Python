@@ -439,5 +439,29 @@ def media_aritmetica():
     print("A média é {}".format(media))
 
 
+# 25. Faça um programa que peça para n, pessoas a sua idade, ao final o programa devera verificar se a média de idade
+# da turma varia entre 0 e 25,26 e 60 e maior que 60; e então, dizer se a turma é jovem, adulta ou idosa, conforme a
+# média calculada.
+
+def idade():
+    numero_pessoas = int(input("Digite o número de pessoas: "))
+    soma = 0
+
+    for contador in range(1, numero_pessoas + 1):
+        age = float(input("Digite a idade da pessoa {}: ".format(contador)))
+        soma = soma + age
+
+    media = soma / numero_pessoas
+
+    if 0 <= media <= 25:
+        print("A média das idades é {}, portanto a turma é JOVEM!".format(media))
+
+    elif 26 <= media <= 60:
+        print("A média das idades é {}, portanto a turma é ADULTA!".format(media))
+
+    else:
+        print("A média das idades é {}, portanto a turma é IDOSA!".format(media))
+
+
 if __name__ == "__main__":
-    media_aritmetica()
+    idade()
