@@ -410,23 +410,34 @@ def numero_primo_multiplo():
 # avaliados o funcionamento, o estilo e o número de testes (divisões) executados.
 
 def numero_primo_divisoes():
-    numero = int(input("Digite um número: "))
+    n = int(input("Digite o valor de n: "))
+    repeticoes = 0
     lista = []
-    divisoes = 0
 
-    lista.append(2)
-    for numero in range(numero + 1):
-        if numero % 2 == 1 and numero != 2:
-            lista.append(numero)
-            divisoes += 1
+    for contador in range(1, n + 1):
+        if n % contador == 0:
+            repeticoes += 1
 
-        else:
-            divisoes += 1
+    if repeticoes == 2:
+        lista.append(n)
+        print(lista)
+        repeticoes -= 2
 
-    lista.remove(1)
-    print("Números primos: ", sorted(lista))
-    print("Número de divisões", divisoes)
+
+# 24. Faça um programa que calcule o mostre a média aritmética de N notas.
+
+def media_aritmetica():
+    numero_notas = int(input("Digite o número de notas: "))
+    soma = 0
+
+    for contador in range(1, numero_notas + 1):
+        nota = float(input("Digite a nota {}: ".format(contador)))
+        soma = soma + nota
+
+    media = soma / numero_notas
+
+    print("A média é {}".format(media))
 
 
 if __name__ == "__main__":
-    numero_primo_divisoes()
+    media_aritmetica()
