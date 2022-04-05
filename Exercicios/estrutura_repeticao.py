@@ -405,5 +405,28 @@ def numero_primo_multiplo():
         print("O número {} é primo!".format(numero))
 
 
+# 23. Faça um programa que mostre todos os primos entre 1 e N sendo N um número inteiro fornecido pelo utilizador. O
+# programa deverá mostrar também o número de divisões que ele executou para encontrar os números primos. Serão
+# avaliados o funcionamento, o estilo e o número de testes (divisões) executados.
+
+def numero_primo_divisoes():
+    numero = int(input("Digite um número: "))
+    lista = []
+    divisoes = 0
+
+    lista.append(2)
+    for numero in range(numero + 1):
+        if numero % 2 == 1 and numero != 2:
+            lista.append(numero)
+            divisoes += 1
+
+        else:
+            divisoes += 1
+
+    lista.remove(1)
+    print("Números primos: ", sorted(lista))
+    print("Número de divisões", divisoes)
+
+
 if __name__ == "__main__":
-    numero_primo_multiplo()
+    numero_primo_divisoes()
