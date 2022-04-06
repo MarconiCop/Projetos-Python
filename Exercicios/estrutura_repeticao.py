@@ -474,5 +474,98 @@ def idade():
         print("A média das idades é {}, portanto a turma é IDOSA!".format(media))
 
 
+# 26. Numa eleição existem três candidatos. Faça um programa que peça o número total de eleitores. Peça para cada
+# eleitor votar e ao final mostrar o número de votos de cada candidato.
+
+def eleicao():
+    numero_eleitores = int(input("Digite o número de eleitores: "))
+    candidato_um = 0
+    candidato_dois = 0
+    candidato_tres = 0
+
+    for eleitor in range(1, numero_eleitores + 1):
+        voto = int(input("Olá eleitor {}! Digite 1 para votar no candidato 1, 2 para votar no candidato 2, "
+                         "3 para votar no candidato 3: ".format(eleitor)))
+
+        if voto == 1:
+            candidato_um += 1
+        elif voto == 2:
+            candidato_dois += 1
+        elif voto == 3:
+            candidato_tres += 1
+        else:
+            print("Voto anulado!")
+
+    print("Houve {} eleitores!".format(numero_eleitores))
+    print("Houve {} votos para o Candidato 1".format(candidato_um))
+    print("Houve {} votos para o Candidato 2".format(candidato_dois))
+    print("Houve {} votos para o Candidato 3".format(candidato_tres))
+
+
+# 27. Faça um programa que calcule o número médio de alunos por turma. Para isto, peça a quantidade de turmas e a
+# quantidade de alunos para cada turma. As turmas não podem ter mais de 40 alunos.
+
+def numero_medio():
+    numero_turmas = int(input("Digite o número de turmas: "))
+    armazena_quantidade_alunos_total = 0
+
+    for turma in range(1, numero_turmas + 1):
+        quantidade_alunos = int(input("Digite a quantidade de alunos da turma {}: ".format(turma)))
+        if quantidade_alunos <= 40:
+            armazena_quantidade_alunos_total = armazena_quantidade_alunos_total + quantidade_alunos
+        else:
+            while quantidade_alunos > 40:
+                print("A turma {} tem mais de 40 alunos!".format(turma))
+                quantidade_alunos = int(input("Digite a quantidade de alunos da turma {}: ".format(turma)))
+
+            armazena_quantidade_alunos_total = armazena_quantidade_alunos_total + quantidade_alunos
+
+    numero_medio_aluno = armazena_quantidade_alunos_total / numero_turmas
+
+    print("O número médio de alunos por turma é {}".format(numero_medio_aluno))
+
+
+# 28. Faça um programa que calcule o valor total investido por um colecionador na sua coleção de CDs e o valor médio
+# gasto em cada um deles. O utilizador deverá informar a quantidade de CDs e o valor para em cada um.
+
+def colecionador_cds():
+    quantidade_cds = int(input("Digite a quantidade de CDs: "))
+    valor_investido = 0
+    for cd in range(1, quantidade_cds + 1):
+        valor_cd = float(input("Digite o valor do CD {}: ".format(cd)))
+        valor_investido = valor_investido + valor_cd
+
+    valor_medio = valor_investido / quantidade_cds
+    print("O colecionador possui {} CDs, com um valor investido de {:.2f} reais, com uma média de {:.2f} reais por CD."
+          .format(quantidade_cds, valor_investido, valor_medio))
+
+
+# 29. O Sr. Manoel Joaquim possui uma grande loja de artigos de R$ 1,99, com cerca de 10 caixas. Para agilizar o
+# cálculo de quanto cada cliente deve pagar ele desenvolveu um tabela que contém o número de itens que o cliente
+# comprou e ao lado o valor da conta. Desta forma a atendente do caixa precisa apenas contar quantos itens o cliente
+# está levando e olhar na tabela de preços. Foi contratado para desenvolver o programa que monta esta tabela de
+# preços, que conterá os preços de 1 até 50 produtos, conforme o exemplo abaixo: Lojas Quase Dois - Tabela de preços
+# 1 - R$ 1.99 2 - R$ 3.98 ... 50 - R$ 99.50
+
+def tabela_precos():
+    preco_item = 1.99
+    print("Lojas Quase Dois - Tabela de preços")
+    for quantidade_item in range(1, 51):
+        print("{} - R$ {:.2F}".format(quantidade_item, quantidade_item * preco_item))
+
+
+# 30. O Sr. Manoel Joaquim acaba de adquirir uma panificadora e pretende implantar a metodologia da tabelinha,
+# que já é um sucesso na sua loja de 1,99. Foi contratado para desenvolver o programa que monta a tabela de
+# preços de pães, de 1 até 50 pães, a partir do preço do pão informado pelo utilizador, conforme o exemplo abaixo: preço
+# do pão: R$ 0.18 Panificadora Pão de Ontem — Tabela de preços 1 - R$ 0.18 2 - R$ 0.36 ... 50 - R$ 9.00
+
+def tabela_precos_padaria():
+    preco_item = 0.18
+    print("Preço do pão: R$ 0.18")
+    print("Panificadora Pão de Ontem - Tabela de preços")
+    for quantidade_item in range(1, 51):
+        print("{} - R$ {:.2F}".format(quantidade_item, quantidade_item * preco_item))
+
+
 if __name__ == "__main__":
-    numero_primo_divisoes()
+    tabela_precos_padaria()
