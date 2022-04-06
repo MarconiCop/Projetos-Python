@@ -412,6 +412,7 @@ def numero_primo_multiplo():
 def numero_primo_divisoes():
     n_max = int(input("Digite o limite para os números primos: "))
     lista = []
+    contador_divisoes = 0
 
     while n_max < 2:
         n_max = int(input("Digite o limite para os números primos: "))
@@ -423,12 +424,15 @@ def numero_primo_divisoes():
         for j in range(1, i + 1):
             if i % j == 0:
                 total_divisores += 1
+                contador_divisoes += 1
+            else:
+                contador_divisoes += 1
 
         if total_divisores == 2:
             lista.append(i)
 
     print(lista)
-
+    print("O número de divisões feitas foram: {}".format(contador_divisoes))
 
 
 # 24. Faça um programa que calcule o mostre a média aritmética de N notas.
@@ -471,4 +475,4 @@ def idade():
 
 
 if __name__ == "__main__":
-    idade()
+    numero_primo_divisoes()
