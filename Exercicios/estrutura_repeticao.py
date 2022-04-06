@@ -410,18 +410,25 @@ def numero_primo_multiplo():
 # avaliados o funcionamento, o estilo e o número de testes (divisões) executados.
 
 def numero_primo_divisoes():
-    n = int(input("Digite o valor de n: "))
-    repeticoes = 0
+    n_max = int(input("Digite o limite para os números primos: "))
     lista = []
 
-    for contador in range(1, n + 1):
-        if n % contador == 0:
-            repeticoes += 1
+    while n_max < 2:
+        n_max = int(input("Digite o limite para os números primos: "))
 
-    if repeticoes == 2:
-        lista.append(n)
-        print(lista)
-        repeticoes -= 2
+    for i in range(0, n_max + 1):
+
+        total_divisores = 0
+
+        for j in range(1, i + 1):
+            if i % j == 0:
+                total_divisores += 1
+
+        if total_divisores == 2:
+            lista.append(i)
+
+    print(lista)
+
 
 
 # 24. Faça um programa que calcule o mostre a média aritmética de N notas.
