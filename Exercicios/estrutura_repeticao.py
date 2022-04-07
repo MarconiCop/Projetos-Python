@@ -3,6 +3,8 @@ import math
 
 # 1. Faça um programa que peça uma nota, entre zero e dez. Mostre uma mensagem caso o valor seja inválido e continue
 # a pedir até que o utilizador informe um valor válido.
+import string
+
 
 def nota_valida():
     nota = float(input("Digite uma nota entre 0 e 10: "))
@@ -568,5 +570,71 @@ def tabela_precos_padaria():
         print("{} - R$ {:.2F}".format(quantidade_item, quantidade_item * preco_item))
 
 
+# 31. O Sr. Manoel Joaquim expandiu os seus negócios para além dos negócios de 1,99 e agora possui uma loja de
+# conveniências. Faça um programa que implemente uma caixa registradora rudimentar. O programa deverá receber um
+# número desconhecido de valores referentes aos preços das mercadorias. Um valor zero deve ser informado pelo
+# operador para indicar o final da compra. O programa deve então mostrar o total da compra e perguntar o valor em
+# dinheiro que o cliente forneceu, para então calcular e mostrar o valor do troco. Após esta operação, o programa
+# deverá voltar ao ponto inicial, para registrar a próxima compra. A saída deve ser conforme o exemplo abaixo:
+# Lojas Tabajara
+# Produto 1: R$ 2.20
+# Produto 2: R$ 5.80
+# Produto 3: R$ 0
+# Total: R$ 9.00
+# Dinheiro: R$ 20.00
+# Troco: R$ 11.00
+# ...
+
+def recibo():
+    lista = []
+
+    for produto in range(1, 1000):
+        valor_produto = float(input("Digite o valor do produto {}: ".format(produto)))
+        lista.append(valor_produto)
+        if valor_produto == 0:
+            break
+
+    print("Total a pagar : R$ {:.2f}".format((sum(lista))))
+
+    dinheiro = float(input("Digite quanto vai pagar: "))
+    troco = dinheiro - sum(lista)
+
+    print("Lojas Tabajara")
+    for posicao_lista in range(len(lista)):
+        print("Produto {}: R$ {:.2f}".format(posicao_lista + 1, lista[posicao_lista]))
+    print("Total: R$ {:.2f}".format(sum(lista)))
+    print("Dinheiro: R$ {:.2f}".format(dinheiro))
+    print("Troco: R$ {:.2f}".format(troco))
+
+
+# 32. Faça um programa que calcule o fatorial de um número inteiro fornecido pelo usuário. Ex.: 5!=5.4.3.2.1=120. A
+# saída deve ser conforme o exemplo abaixo:
+
+def fatorial_dois():
+    numero = int(input("Digite o número: "))
+
+    print("Fatorial de: {}".format(numero))
+
+    print("{}! = {} = {}".format(numero, retorna_sequencia(numero), calcula_fatorial_dois(numero)))
+
+
+def retorna_sequencia(numero):
+    lista = []
+    for numero in range(numero, 0, -1):
+        lista.append(numero)
+
+    string_lista = str(lista).replace(",", " .").replace("[", "").replace("]","")
+
+    return string_lista
+
+
+def calcula_fatorial_dois(numero):
+    if numero != 1:
+        numero_menos_um = numero - 1
+        return numero * calcula_fatorial(numero_menos_um)
+    else:
+        return 1
+
+
 if __name__ == "__main__":
-    numero_primo_divisoes()
+    fatorial_dois()
