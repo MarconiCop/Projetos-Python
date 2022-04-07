@@ -422,6 +422,7 @@ def numero_primo_divisoes():
         total_divisores = 0
 
         for j in range(1, i + 1):
+
             if i % j == 0:
                 total_divisores += 1
                 contador_divisoes += 1
@@ -568,4 +569,4 @@ def tabela_precos_padaria():
 
 
 if __name__ == "__main__":
-    tabela_precos_padaria()
+    numero_primo_divisoes()
