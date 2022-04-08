@@ -819,5 +819,134 @@ def academia():
     print("A média dos pesos é {:.2f}".format(sum(lista_pesos) / len(lista_pesos)))
 
 
+# 38. Um funcionário de uma empresa recebe aumento salarial anualmente: por que método? Que: Esse funcionário foi
+# contratado em 1995, com salário inicial de R$ 1.000,00; em 1996 recebeu aumento de 1,5% sobre o seu salário
+# inicial; A partir de 1997 (inclusive), os aumentos salariais sempre correspondem ao dobro do percentual do ano
+# anterior. Faça um programa que determine o salário atual desse funcionário. Após concluir isto, altere o programa
+# permitindo que o utilizador digite o salário inicial do funcionário.
+
+
+def funcionario_empresa():
+    salario = float(input("Digite o salário: "))
+    porcentagem = 0.015
+
+    for ano in range(1996, 2022):
+        salario = salario + (porcentagem * salario)
+        print("Salário em {}: {:.2f}, porcentagem: {}".format(ano, salario, porcentagem))
+        porcentagem = porcentagem * 2
+
+
+# 39. Faça um programa que leia dez conjuntos de dois valores, o primeiro representando o número do aluno e o segundo
+# representando a sua altura em centímetros. Encontre o aluno mais alto e o mais baixo. Mostre o número do aluno mais
+# alto e o número do aluno mais baixo, junto com suas alturas.
+
+def listar_alunos():
+    lista = []
+    lista_alturas = []
+    lista_numeros = []
+
+    class Aluno:
+
+        def __init__(self, numero, altura):
+            self.__numero = numero
+            self.__altura = altura
+
+        @property
+        def numero(self):
+            return self.__numero
+
+        @property
+        def altura(self):
+            return self.__altura
+
+    for aluno in range(1, 11):
+        n = int(input("Digite seu número:"))
+        a = float(input("Digite sua altura:"))
+        aluno = Aluno(n, a)
+        lista.extend([[aluno.numero, aluno.altura]])
+
+    for aluno in range(0, len(lista)):
+        lista_numeros.append(lista[aluno][0])
+
+    for aluno in range(0, len(lista)):
+        lista_alturas.append(lista[aluno][1])
+
+    for posicao in range(0, len(lista_alturas)):
+        if max(lista_alturas) is lista_alturas[posicao]:
+            print("O aluno que tem a maior altura é o de código {} ".format(lista_numeros[posicao]))
+            print("A maior altura é {:.2f}".format(max(lista_alturas)))
+
+    for posicao in range(0, len(lista_alturas)):
+        if min(lista_alturas) is lista_alturas[posicao]:
+            print("O aluno que tem a menor altura é o de código {} ".format(lista_numeros[posicao]))
+            print("A menor altura é {:.2f}".format(min(lista_alturas)))
+
+
+# 40. Foi feita uma estatística em cinco cidades brasileiras para coletar dados sobre acidentes de trânsito. Foram
+# obtidos os seguintes dados: código da cidade; número de veículos de passeio (em 1999); número de acidentes de
+# trânsito com vítimas (em 1999). Deseja-se saber: qual o maior e menor índice de acidentes de trânsito e a que
+# cidade pertence; qual a média de veículos nas cinco cidades juntas; qual a média de acidentes de trânsito nas
+# cidades com menos de 2.000 veículos de passeio.
+
+def cidades():
+    soma = 0
+    lista = []
+    lista_codigos = []
+    lista_veiculos = []
+    lista_acidentes = []
+
+    class Cidade:
+
+        def __init__(self, codigo, numero_veiculos, numero_acidentes):
+            self.__codigo = codigo
+            self.__numero_veiculos = numero_veiculos
+            self.__numero_acidentes = numero_acidentes
+
+        @property
+        def codigo(self):
+            return self.__codigo
+
+        @property
+        def numero_veiculos(self):
+            return self.__numero_veiculos
+
+        @property
+        def numero_acidentes(self):
+            return self.__numero_acidentes
+
+    for cidade in range(1, 6):
+        c = int(input("Digite o código da cidade: "))
+        nv = int(input("Digite o número de veículos: "))
+        na = int(input("Digite o número de acidentes: "))
+        cidade = Cidade(c, nv, na)
+        lista.extend([[cidade.codigo, cidade.numero_veiculos, cidade.numero_acidentes]])
+
+    for cidade in range(0, len(lista)):
+        lista_codigos.append(lista[cidade][0])
+
+    for cidade in range(0, len(lista)):
+        lista_veiculos.append(lista[cidade][1])
+
+    for cidade in range(0, len(lista)):
+        lista_acidentes.append(lista[cidade][2])
+
+    for posicao in range(0, len(lista_acidentes)):
+        if max(lista_acidentes) is lista_acidentes[posicao]:
+            print("A cidade que tem o maior indice de acidentes é a de código {} ".format(lista_codigos[posicao]))
+            print("O maior indice de acidentes é {:.2f}".format(max(lista_acidentes)))
+
+    for posicao in range(0, len(lista_acidentes)):
+        if min(lista_acidentes) is lista_acidentes[posicao]:
+            print("A cidade que tem o menor indice de acidentes é a de código {} ".format(lista_codigos[posicao]))
+            print("O menor indice de acidentes é {:.2f}".format(min(lista_acidentes)))
+
+    for posicao in range(0, len(lista_veiculos)):
+        if lista_veiculos[posicao] < 2000:
+            soma = soma + lista_acidentes[posicao]
+
+    print("A média de veiculos das 5 cidades é {}".format( sum(lista_veiculos) / len(lista_veiculos)))
+    print("A média de acidentes nas cidades com menos de 2000 veículos é {}".format(soma / len(lista_acidentes)))
+
+
 if __name__ == "__main__":
-    academia()
+    cidades()
