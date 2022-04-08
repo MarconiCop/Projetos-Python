@@ -1,6 +1,5 @@
 import math
 
-
 # 1. Faça um programa que peça uma nota, entre zero e dez. Mostre uma mensagem caso o valor seja inválido e continue
 # a pedir até que o utilizador informe um valor válido.
 import string
@@ -623,7 +622,7 @@ def retorna_sequencia(numero):
     for numero in range(numero, 0, -1):
         lista.append(numero)
 
-    string_lista = str(lista).replace(",", " .").replace("[", "").replace("]","")
+    string_lista = str(lista).replace(",", " .").replace("[", "").replace("]", "")
 
     return string_lista
 
@@ -636,5 +635,75 @@ def calcula_fatorial_dois(numero):
         return 1
 
 
+# 33. O Departamento Estadual de Meteorologia contratou-lhe para desenvolver um programa que leia os conjunto
+# indeterminado de temperaturas, e informe ao final a menor e a maior temperaturas informadas, bem como a média das
+# temperaturas.
+
+
+def temperaturas():
+    quantidade = int(input("Digite a quantidade de temperaturas do conjunto: "))
+    lista = []
+
+    for posicao_temperatura in range(1, quantidade + 1):
+        temperatura = float(input("Digite a temperatura {} do conjunto: ".format(posicao_temperatura)))
+        lista.append(temperatura)
+
+    media = sum(lista) / quantidade
+
+    if media < 0:
+        media = media * -1
+
+    print("A menor temperatura é: {:.2f}".format(min(lista)))
+    print("A maior temperatura é: {:.2f}".format(max(lista)))
+    print("A média das temperaturas é: {:.2f}".format(media))
+
+
+# 34. Os números primos possuem várias aplicações na Computação, por exemplo, na Criptografia. Um número primo
+# é aquele sendo divisível apenas por um e por ele mesmo. Faça um programa que peça um número inteiro e determine se
+# ele é ou não um número primo.
+
+def numero_primo_dois():
+    numero = int(input("Digite o número: "))
+    verifica = 0
+    for contador in range(1, numero):
+
+        if numero % contador == 0:
+            verifica = contador + 1
+
+    if verifica > 2 or numero == 0 or numero == 1:
+        print("O número {} não é primo!".format(numero))
+    else:
+        print("O número {} é primo!".format(numero))
+
+
+# 35. Encontrar números primos é uma tarefa difícil. Faça um programa que gera uma lista dos números primos
+# existentes entre 1 e um número inteiro informado pelo utilizador.
+
+def numero_primo_divisoes_dois():
+    n_max = int(input("Digite o limite para os números primos: "))
+    lista = []
+    contador_divisoes = 0
+
+    while n_max < 2:
+        n_max = int(input("Digite o limite para os números primos: "))
+
+    for i in range(0, n_max + 1):
+
+        total_divisores = 0
+
+        for j in range(1, i + 1):
+
+            if i % j == 0:
+                total_divisores += 1
+                contador_divisoes += 1
+            else:
+                contador_divisoes += 1
+
+        if total_divisores == 2:
+            lista.append(i)
+
+    print(lista)
+    print("O número de divisões feitas foram: {}".format(contador_divisoes))
+
 if __name__ == "__main__":
-    fatorial_dois()
+    temperaturas()
