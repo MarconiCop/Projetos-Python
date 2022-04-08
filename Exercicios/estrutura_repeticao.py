@@ -1,4 +1,5 @@
 import math
+import sys
 
 # 1. Faça um programa que peça uma nota, entre zero e dez. Mostre uma mensagem caso o valor seja inválido e continue
 # a pedir até que o utilizador informe um valor válido.
@@ -705,5 +706,118 @@ def numero_primo_divisoes_dois():
     print(lista)
     print("O número de divisões feitas foram: {}".format(contador_divisoes))
 
+
+# 36. Desenvolva um programa que faça a tabuada de um número qualquer inteiro que será digitado pelo utilizador,
+# mas a tabuada não deve necessariamente iniciar em 1 e terminar em 10, o valor inicial e final devem ser informados
+# também pelo utilizador, conforme exemplo abaixo:
+
+# Montar a tabuada de: 5
+# Começar por: 4
+# Terminar em: 7
+
+# Vou montar a tabuada de 5 começando em 4 e terminando em 7:
+# 5 X 4 = 20
+# 5 X 5 = 25
+# 5 X 6 = 30
+# 5 X 7 = 35
+
+def tabuada_personalizada():
+    numero_tabuada = int(input("Digite o número entre 1 a 10: "))
+    numero_inicial = int(input("Digite o número inicial da tabuada: "))
+    numero_final = int(input("Digite o número final da tabuada: "))
+
+    while numero_inicial > numero_final:
+        print("O número inicial deve ser menor que o número final!")
+        numero_inicial = int(input("Digite o número inicial da tabuada: "))
+        numero_final = int(input("Digite o número final da tabuada: "))
+
+    print("")
+    print("Montar a tabuada de: {}".format(numero_tabuada))
+    print("Começar por: {}".format(numero_inicial))
+    print("Terminar em: {}".format(numero_final))
+    print("")
+    print("Vou montar a tabuada de {} começando em {} e terminando em {}".format(numero_tabuada, numero_inicial,
+                                                                                 numero_final))
+
+    for numero in range(numero_inicial, numero_final + 1):
+        print("{} X {} = {}".format(numero_tabuada, numero, numero_tabuada * numero))
+
+
+# 37. Uma academia deseja fazer um senso entre os seus clientes para descobrir o mais alto, o mais baixo, a mais gordo e
+# o mais magro, para isto deve fazer um programa que pergunte a cada um dos clientes da academia o seu código,
+# sua altura e seu peso. O final da digitação de dados deve ser dada quando o utilizador digitar 0 (zero) no campo
+# código. Ao encerrar o programa também deve ser informados os códigos e valores do cliente mais alto, do mais baixo,
+# do mais gordo e do mais magro, além da média das alturas e dos pesos dos clientes.
+
+def academia():
+    lista = []
+
+    class Cliente:
+
+        def __init__(self, codigo, altura, peso):
+            self.__codigo = codigo
+            self.__altura = altura
+            self.__peso = peso
+
+        @property
+        def codigo(self):
+            return self.__codigo
+
+        @property
+        def altura(self):
+            return self.__altura
+
+        @property
+        def peso(self):
+            return self.__peso
+
+    for cliente in range(1, 1000):
+        c = int(input("Digite seu código:"))
+        if c == 0:
+            break
+        a = float(input("Digite sua altura:"))
+        p = float(input("Digite seu peso: "))
+
+        cliente = Cliente(c, a, p)
+        lista.extend([[cliente.codigo, cliente.altura, cliente.peso]])
+
+    print(lista)
+
+    lista_codigos = []
+    for cliente in range(0, len(lista)):
+        lista_codigos.append(lista[cliente][0])
+
+    lista_alturas = []
+    for cliente in range(0, len(lista)):
+        lista_alturas.append(lista[cliente][1])
+
+    lista_pesos = []
+    for cliente in range(0, len(lista)):
+        lista_pesos.append(lista[cliente][2])
+
+    for posicao in range(0, len(lista_alturas)):
+        if max(lista_alturas) is lista_alturas[posicao]:
+            print("O cliente que tem a maior altura é o de código {} ".format(lista_codigos[posicao]))
+            print("A maior altura é {:.2f}".format(max(lista_alturas)))
+
+    for posicao in range(0, len(lista_alturas)):
+        if min(lista_alturas) is lista_alturas[posicao]:
+            print("O cliente que tem a menor altura é o de código {} ".format(lista_codigos[posicao]))
+            print("A menor altura é {:.2f}".format(min(lista_alturas)))
+
+    for posicao in range(0, len(lista_pesos)):
+        if max(lista_pesos) is lista_pesos[posicao]:
+            print("O cliente que tem o maior peso é o de código {} ".format(lista_codigos[posicao]))
+            print("O maior peso é {:.2f}".format(max(lista_pesos)))
+
+    for posicao in range(0, len(lista_pesos)):
+        if min(lista_pesos) is lista_pesos[posicao]:
+            print("O cliente que tem o menor peso é o de código {} ".format(lista_codigos[posicao]))
+            print("O menor peso é {:.2f}".format(min(lista_pesos)))
+
+    print("A média das alturas é {:.2f}".format(sum(lista_alturas) / len(lista_alturas)))
+    print("A média dos pesos é {:.2f}".format(sum(lista_pesos) / len(lista_pesos)))
+
+
 if __name__ == "__main__":
-    temperaturas()
+    academia()
