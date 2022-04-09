@@ -944,9 +944,62 @@ def cidades():
         if lista_veiculos[posicao] < 2000:
             soma = soma + lista_acidentes[posicao]
 
-    print("A média de veiculos das 5 cidades é {}".format( sum(lista_veiculos) / len(lista_veiculos)))
+    print("A média de veiculos das 5 cidades é {}".format(sum(lista_veiculos) / len(lista_veiculos)))
     print("A média de acidentes nas cidades com menos de 2000 veículos é {}".format(soma / len(lista_acidentes)))
 
 
+# 41. Faça um programa que receba o valor de uma dívida e mostre uma tabela com os seguintes dados: valor da dívida,
+# valor dos juros, quantidade de parcelas e valor da parcela. Os juros e a quantidade de parcelas seguem a tabela
+# abaixo: Quantidade de Parcelas % de Juros sobre o valor inicial da dívida 1 0 3 10 6 15 9
+# 20 12 25 Exemplo de saída do programa: Valor da Dívida Valor dos Juros Quantidade de Parcelas Valor da
+# Parcela R$ 1.000,00 0 1                       R$  1.000,00 R$ 1.100,00     100             3
+# R$ 366,00 R$ 1.150,00 150 6 R$    191,67
+
+def divida():
+    valor_divida = float(input("Digite o valor da dívida: "))
+
+    quantidade_parcelas = 1
+    valor_juros = 0
+    print("Valor da Dívida Valor dos Juros Quantidade de Parcelas  Valor da Parcela")
+    print("   R$ {:.2f}           {}               {}                 {:.2f}     ".format(valor_divida, valor_juros,
+                                                                                          quantidade_parcelas,
+                                                                                          valor_divida /
+                                                                                          quantidade_parcelas))
+
+    quantidade_parcelas = 3
+    valor_juros = (10 / 100) * valor_divida
+    valor_divida = valor_divida + valor_juros
+    print("   R$ {:.2f}           {}               {}                 {:.2f}     ".format(valor_divida, valor_juros,
+                                                                                          quantidade_parcelas,
+                                                                                          valor_divida /
+                                                                                          quantidade_parcelas))
+
+    valor_divida = valor_divida - valor_juros
+    quantidade_parcelas = 6
+    valor_juros = (15 / 100) * valor_divida
+    valor_divida = valor_divida + valor_juros
+    print("   R$ {:.2f}           {}               {}                 {:.2f}     ".format(valor_divida, valor_juros,
+                                                                                          quantidade_parcelas,
+                                                                                          valor_divida /
+                                                                                          quantidade_parcelas))
+
+    valor_divida = valor_divida - valor_juros
+    quantidade_parcelas = 9
+    valor_juros = (20 / 100) * valor_divida
+    valor_divida = valor_divida + valor_juros
+    print("   R$ {:.2f}           {}               {}                 {:.2f}     ".format(valor_divida, valor_juros,
+                                                                                          quantidade_parcelas,
+                                                                                          valor_divida /
+                                                                                          quantidade_parcelas))
+
+    valor_divida = valor_divida - valor_juros
+    quantidade_parcelas = 12
+    valor_juros = (25 / 100) * valor_divida
+    valor_divida = valor_divida + valor_juros
+    print("   R$ {:.2f}           {}               {}                 {:.2f}     ".format(valor_divida, valor_juros,
+                                                                                          quantidade_parcelas,
+                                                                                          valor_divida /
+                                                                                          quantidade_parcelas))
+
 if __name__ == "__main__":
-    cidades()
+    divida()
