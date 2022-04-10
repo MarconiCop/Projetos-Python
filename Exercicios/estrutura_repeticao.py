@@ -1001,5 +1001,77 @@ def divida():
                                                                                           valor_divida /
                                                                                           quantidade_parcelas))
 
+
+# 42. Faça um programa que leia uma quantidade indeterminada de números positivos e conte quantos deles estão nos
+# seguintes intervalos: [0-25], [26-50], [51-75] e [76-100]. A entrada de dados deverá terminar quando for lido um
+# número negativo.
+
+
+def numeros_positivos_intervalo():
+    numero_positivo = 0
+    contador_um = 0
+    contador_dois = 0
+    contador_tres = 0
+    contador_quatro = 0
+    lista_um = []
+    lista_dois = []
+    lista_tres = []
+    lista_quatro = []
+
+    while numero_positivo >= 0:
+
+        numero_positivo = int(input("Digite um número positivo: "))
+
+        if numero_positivo in lista_um or numero_positivo in lista_dois or numero_positivo in lista_tres \
+                or numero_positivo in lista_quatro:
+
+            print("Este número já foi adicionado!")
+
+        if 0 <= numero_positivo <= 25:
+            contador_um += 1
+            lista_um.append(numero_positivo)
+
+        elif 26 <= numero_positivo <= 50:
+            contador_dois += 1
+            lista_dois.append(numero_positivo)
+
+        elif 51 <= numero_positivo <= 75:
+            contador_tres += 1
+            lista_tres.append(numero_positivo)
+
+        elif 76 <= numero_positivo <= 100:
+            contador_quatro += 1
+            lista_quatro.append(numero_positivo)
+
+        else:
+            print("Número Inválido!")
+            print("Digitação finalizada!")
+
+    tamanho_lista_um = len(sorted(set(lista_um)))
+    tamanho_lista_dois = len(sorted(set(lista_dois)))
+    tamanho_lista_tres = len(sorted(set(lista_tres)))
+    tamanho_lista_quatro = len(sorted(set(lista_quatro)))
+
+    if contador_um > 0:
+        print("Há {} número(s) no intervalo [0-25] -> {}".format(tamanho_lista_um, sorted(set(lista_um))))
+    else:
+        print("Não há números no intervalo [0-25]")
+
+    if contador_dois > 0:
+        print("Há {} número(s) no intervalo [26-50] -> {}".format(tamanho_lista_dois, sorted(set(lista_dois))))
+    else:
+        print("Não há números no intervalo [26-50]")
+
+    if contador_tres > 0:
+        print("Há {} número(s) no intervalo [51-75] -> {}".format(tamanho_lista_tres, sorted(set(lista_tres))))
+    else:
+        print("Não há números no intervalo [51-75]")
+
+    if contador_quatro > 0:
+        print("Há {} número(s) no intervalo [76-100] -> {}".format(tamanho_lista_quatro, sorted(set(lista_quatro))))
+    else:
+        print("Não há números no intervalo [76-100]")
+
+
 if __name__ == "__main__":
-    divida()
+    numeros_positivos_intervalo()
