@@ -1024,7 +1024,6 @@ def numeros_positivos_intervalo():
 
         if numero_positivo in lista_um or numero_positivo in lista_dois or numero_positivo in lista_tres \
                 or numero_positivo in lista_quatro:
-
             print("Este número já foi adicionado!")
 
         if 0 <= numero_positivo <= 25:
@@ -1073,5 +1072,181 @@ def numeros_positivos_intervalo():
         print("Não há números no intervalo [76-100]")
 
 
+# 43. O cardápio de uma café é o seguinte: (especificação) Código Preço Cachorro Quente 100 R$ 1,
+# 20 Bauru Simples 101 R$ 1,30 Bauru com ovo 102 R$ 1,50 Hambúrguer 103 R$ 1,20 Cheeseburguer
+# 104 R$ 1,30 efrigerante 105 R$ 1,00 Faça um programa que leia o código dos itens pedidos e as
+# quantidades desejadas. Calcule e mostre o valor a ser pago por ‘item’ (preço * quantidade) e o total geral do pedido.
+# Considere que o cliente deve informar quando o pedido deve ser encerrado.
+
+def lanchonete():
+    print("--------------------------------")
+    print("Especificação   Código    Preço")
+    print("Cachorro Quente  100     R$ 1,20")
+    print("Bauru Simples    101     R$ 1,30")
+    print("Bauru com ovo    102     R$ 1,50")
+    print("Hambúrguer       103     R$ 1,20")
+    print("Cheeseburguer    104     R$ 1,30")
+    print("Refrigerante     105     R$ 1,00")
+    print("--------------------------------")
+
+    fazer_pedido = int(input("Digite 1 para fazer seu pedido ou 2 para TERMINAR: "))
+    while fazer_pedido != 1 and fazer_pedido != 2:
+        print("--------------")
+        print("Opção Inválida")
+        print("--------------")
+        fazer_pedido = int(input("Digite 1 para fazer seu pedido ou 2 para TERMINAR: "))
+
+    if fazer_pedido == 2:
+        print("--------------------------------")
+        print("Programa encerrado pelo usuário!")
+        print("--------------------------------")
+        return 1
+
+    preco_total = 0
+    quantidade_cachorro_quente = 0
+    quantidade_bauru_simples = 0
+    quantidade_bauru_com_ovo = 0
+    quantidade_hamburguer = 0
+    quantidade_cheeseburguer = 0
+    quantidade_refrigerante = 0
+
+    contador_cachorro_quente = 0
+    contador_bauru_simples = 0
+    contador_bauru_com_ovo = 0
+    contador_hamburguer = 0
+    contador_cheeseburguer = 0
+    contador_refrigerante = 0
+
+    preco_por_cachorro_quente = 0
+    preco_por_bauru_simples = 0
+    preco_por_bauru_com_ovo = 0
+    preco_por_hamburguer = 0
+    preco_por_cheeseburguer = 0
+    preco_por_refrigerante = 0
+
+    while fazer_pedido != 2:
+
+        if fazer_pedido == 1:
+
+            print("------------------------------")
+            print("Digite o código do seu pedido!")
+            print("------------------------------")
+            codigo_pedido = int(input("Digite o código do pedido(100, 101, 102, 103, 104, ou 105): "))
+
+            if codigo_pedido == 100:
+                print("----------------------------------")
+                print("Você selecionou 'Cachorro Quente'!")
+                print("----------------------------------")
+
+                quantidade_cachorro_quente = int(input("Digite a quantidade desejada: "))
+                contador_cachorro_quente += quantidade_cachorro_quente
+                preco_cachorros_quentes = 1.20 * quantidade_cachorro_quente
+                preco_total += preco_cachorros_quentes
+
+                preco_por_cachorro_quente += 1.20 * quantidade_cachorro_quente
+
+            elif codigo_pedido == 101:
+                print("--------------------------------")
+                print("Você selecionou 'Bauru Simples'!")
+                print("--------------------------------")
+
+                quantidade_bauru_simples = int(input("Digite a quantidade desejada: "))
+                contador_bauru_simples += quantidade_bauru_simples
+                preco_bauru_simples = 1.30 * quantidade_bauru_simples
+                preco_total += preco_bauru_simples
+
+                preco_por_bauru_simples += 1.30 * quantidade_bauru_simples
+
+            elif codigo_pedido == 102:
+                print("--------------------------------")
+                print("Você selecionou 'Bauru com Ovo'!")
+                print("--------------------------------")
+
+                quantidade_bauru_com_ovo = int(input("Digite a quantidade desejada: "))
+                contador_bauru_com_ovo += quantidade_bauru_com_ovo
+                preco_bauru_com_ovo = 1.50 * quantidade_bauru_com_ovo
+                preco_total += preco_bauru_com_ovo
+
+                preco_por_bauru_com_ovo += 1.50 * quantidade_bauru_com_ovo
+
+            elif codigo_pedido == 103:
+                print("-----------------------------")
+                print("Você selecionou 'Hambúrguer'!")
+                print("-----------------------------")
+
+                quantidade_hamburguer = int(input("Digite a quantidade desejada: "))
+                contador_hamburguer += quantidade_hamburguer
+                preco_hamburguer = 1.20 * quantidade_hamburguer
+                preco_total += preco_hamburguer
+
+                preco_por_hamburguer += 1.20 * quantidade_hamburguer
+
+            elif codigo_pedido == 104:
+                print("-----------------------------")
+                print("Você selecionou 'Cheeseburguer'!")
+                print("-----------------------------")
+
+                quantidade_cheeseburguer = int(input("Digite a quantidade desejada: "))
+                contador_cheeseburguer += quantidade_cheeseburguer
+                preco_cheeseburguer = 1.30 * quantidade_cheeseburguer
+                preco_total += preco_cheeseburguer
+
+                preco_por_cheeseburguer += 1.30 * quantidade_cheeseburguer
+
+            elif codigo_pedido == 105:
+                print("-----------------------------")
+                print("Você selecionou 'Refrigerante'!")
+                print("-----------------------------")
+
+                quantidade_refrigerante = int(input("Digite a quantidade desejada: "))
+                contador_refrigerante += quantidade_refrigerante
+                preco_refrigerante = 1.00 * quantidade_refrigerante
+                preco_total += preco_refrigerante
+
+                preco_por_refrigerante += 1.00 * quantidade_refrigerante
+
+
+            else:
+                print("------------------------------------")
+                print("Não existem pedidos com este código!")
+                print("------------------------------------")
+
+            fazer_pedido = int(input("Digite 1 para adicionar produtos ao pedido ou 2 para TERMINAR: "))
+            while fazer_pedido != 1 and fazer_pedido != 2:
+                print("--------------")
+                print("Opção Inválida")
+                print("--------------")
+                fazer_pedido = int(input("Digite 1 para adicionar produtos ao pedido ou 2 para TERMINAR: "))
+
+    print("-------------------------------")
+    print("Pedido finalizado pelo usuário!")
+    print("-------------------------------")
+    if quantidade_cachorro_quente > 0 or quantidade_bauru_simples > 0 or quantidade_bauru_com_ovo > 0 \
+            or quantidade_hamburguer > 0 or quantidade_cheeseburguer > 0 or quantidade_refrigerante > 0:
+        print("PEDIDO              QUANTIDADE       PREÇO TOTAL")
+
+        if quantidade_cachorro_quente > 0:
+            print("CACHORRO QUENTE         {}              R${:.2f}".format(contador_cachorro_quente,
+                                                                            preco_por_cachorro_quente))
+        if quantidade_bauru_simples > 0:
+            print("BAURU SIMPLES           {}              R${:.2f}".format(contador_bauru_simples,
+                                                                            preco_por_bauru_simples))
+        if quantidade_bauru_com_ovo > 0:
+            print("BAURU COM OVO           {}              R${:.2f}".format(contador_bauru_com_ovo,
+                                                                            preco_por_bauru_com_ovo))
+        if quantidade_hamburguer > 0:
+            print("HAMBÚRGUER              {}              R${:.2f}".format(contador_hamburguer, preco_por_hamburguer))
+        if quantidade_cheeseburguer > 0:
+            print("CHEESEBÚRGUER           {}              R${:.2f}".format(contador_cheeseburguer,
+                                                                            preco_por_cheeseburguer))
+        if quantidade_refrigerante > 0:
+            print("REFRIGERANTE            {}              R${:.2f}".format(contador_refrigerante,
+                                                                            preco_por_refrigerante))
+
+        print("                                       R${:.2f}".format(preco_total))
+    else:
+        print("O usuário não desejou comprar nada!")
+
+
 if __name__ == "__main__":
-    numeros_positivos_intervalo()
+    lanchonete()
