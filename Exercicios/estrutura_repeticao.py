@@ -1269,6 +1269,7 @@ def eleicao_presidencial():
     contador_quatro = 0
     contador_nulo = 0
     contador_em_branco = 0
+    contador_de_votos = 0
 
     votar = int(input("Digite 1 para votar ou 0 para TERMINAR: "))
     while votar != 1 and votar != 0:
@@ -1296,36 +1297,42 @@ def eleicao_presidencial():
             print("Você votou em Manuel Fonseca!")
             print("-----------------------------")
             contador_um += 1
+            contador_de_votos += 1
 
         elif voto == 2:
             print("--------------------------")
             print("Você votou em Silva Ramos!")
             print("--------------------------")
             contador_dois += 1
+            contador_de_votos += 1
 
         elif voto == 3:
             print("-------------------------------")
             print("Você votou em Fernando Belarte!")
             print("-------------------------------")
             contador_tres += 1
+            contador_de_votos += 1
 
         elif voto == 4:
             print("-------------------------------")
             print("Você votou em Henrique Cardoso!")
             print("-------------------------------")
             contador_quatro += 1
+            contador_de_votos += 1
 
         elif voto == 5:
             print("----------------")
             print("Você votou NULO!")
             print("----------------")
             contador_nulo += 1
+            contador_de_votos += 1
 
         elif voto == 6:
             print("---------------------")
             print("Você votou EM BRANCO!")
             print("---------------------")
             contador_em_branco += 1
+            contador_de_votos += 1
 
         else:
             print("---------------------------------")
@@ -1340,6 +1347,102 @@ def eleicao_presidencial():
             print("--------------")
             votar = int(input("Digite 1 para votar novamente ou 0 para TERMINAR: "))
 
+    print("-----------------------------------------------------------------")
+    print("CANDIDATOS           QUANTIDADE DE VOTOS")
+    print("Manuel Fonseca                {}".format(contador_um))
+    print("Silva Ramos                   {}".format(contador_dois))
+    print("Fernando Belarte              {}".format(contador_tres))
+    print("Henrique Cardoso              {}".format(contador_quatro))
+    print("VOTOS NULOS                   {} sendo {:.2f}% equivalente ao"
+          " TOTAL".format(contador_nulo, (contador_nulo * 100) / contador_de_votos))
+    print("VOTOS EM BRANCO               {} sendo {:.2f}% equivalente ao"
+          " TOTAL".format(contador_em_branco, (contador_em_branco * 100) / contador_de_votos))
+    print("                              {} VOTO(S) AO TOTAL".format(contador_de_votos))
+    print("-----------------------------------------------------------------")
+
+
+# 45. Desenvolver um programa para verificar a nota do aluno numa prova com 10 questões, o programa deve perguntar
+# ao aluno a resposta de cada questão e ao final comparar com o gabarito da prova e assim calcular o total de acertos
+# e a nota (atribuir 1 ponto por resposta certa). Após cada aluno utilizar o sistema deve ser feita uma pergunta se
+# outro aluno vai utilizar o sistema. Após todos os alunos terem respondido informar: Maior e Menor Acerto; Total de
+# Alunos que utilizaram o sistema; A Média das Notas da Turma. Gabarito da Prova:
+# 01 - A 02 - B 03 - C 04 - D 05 - E 06 - E 07 - D 08 - C 09 - B 10 - A Após concluir isto poderia incrementar o
+# programa permitindo que o professor digite o gabarito da prova antes dos alunos usarem o programa.
+
+def prova():
+    maior_acerto = 0
+
+    class Aluno:
+
+        def __init__(self, numero_aluno, total_acertos, nota):
+            self.__numero_aluno = numero_aluno
+            self.__total_acertos = total_acertos
+            self.__nota = nota
+
+        @property
+        def numero_aluno(self):
+            return self.__numero_aluno
+
+        @property
+        def total_acertos(self):
+            return self.__total_acertos
+
+        @property
+        def nota(self):
+            return self.__nota
+
+    gabarito = []
+    alunos = []
+    sair = 0
+
+    for questao in range(0, 10):
+        gabarito_questao = input("PROFESSOR -> Digite o gabarito da Questão {}: ".format(questao + 1)).strip().upper()
+        gabarito.append(gabarito_questao)
+
+    print("------------------------------------------------------------------------")
+    sair = int(input("Irá usar o sistema? Digite 1 para CONTINUAR ou 0 para SAIR: "))
+
+    while sair != 0:
+
+        for aluno in range(1, 1000):
+
+            print("------------------")
+            print("Bem vindo Aluno {}".format(aluno))
+            print("------------------")
+            contador_acertos = 0
+            nota = 0
+
+            for posicao in range(0, 10):
+                questao_prova = input("Digite a resposta da Questão {}:".format(posicao + 1)).strip().upper()
+                if gabarito[posicao] == questao_prova:
+                    contador_acertos += 1
+                    nota += 1
+
+            aluno = Aluno(aluno, contador_acertos, nota)
+            alunos.extend([[aluno.numero_aluno, aluno.total_acertos, aluno.nota]])
+
+            sair = int(input("Irá usar o sistema? Digite 1 para CONTINUAR ou 0 para SAIR: "))
+            if sair == 0:
+                break
+
+    lista_acertos = []
+    for posicao in range(0, len(alunos)):
+        lista_acertos.append(alunos[posicao][1])
+
+    lista_notas = []
+    for posicao in range(0, len(alunos)):
+        lista_notas.append(alunos[posicao][2])
+
+    media = sum(lista_notas) / len(lista_notas)
+
+    print("-----------------------------------------------------------------")
+    print("O maior acerto é {} questão(es) e o menor acerto é {} questão(es)".format(max(lista_acertos),
+                                                                                     min(lista_acertos)))
+    print("O  total de alunos que utilizou o sistema foi {} aluno(s)".format(len(alunos)))
+
+    print("A média das notas é {:.2f}".format(media))
+    print("-----------------------------------------------------------------")
+
 
 if __name__ == "__main__":
-    eleicao_presidencial()
+    prova()
