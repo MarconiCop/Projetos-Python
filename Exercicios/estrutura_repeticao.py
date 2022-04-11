@@ -1205,7 +1205,6 @@ def lanchonete():
 
                 preco_por_refrigerante += 1.00 * quantidade_refrigerante
 
-
             else:
                 print("------------------------------------")
                 print("Não existem pedidos com este código!")
