@@ -44,7 +44,7 @@
     <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="PLAIN_TEXT" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Python.extrator_url">
+  <component name="RunManager" selected="Python.estrutura_repeticao">
     <configuration name="conta" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PycharmProjects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -152,10 +152,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.estrutura_repeticao" />
         <item itemvalue="Python.extrator_url" />
         <item itemvalue="Python.validador_url" />
         <item itemvalue="Python.extrator_cep" />
-        <item itemvalue="Python.estrutura_repeticao" />
         <item itemvalue="Python.conta" />
       </list>
     </recent_temporary>

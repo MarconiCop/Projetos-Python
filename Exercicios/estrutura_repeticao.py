@@ -1247,5 +1247,99 @@ def lanchonete():
         print("O usuário não desejou comprar nada!")
 
 
+# 44. Numa eleição presidencial existem quatro candidatos. Os votos são informados por código. Os códigos
+# utilizados são: 1, 2, 3, 4 — Votos para os respetivos candidatos (deve montar a tabela ex-: 1 - Jose/ 2-
+# João/etc) 5 - Voto Nulo 6 — Voto em Branco Faça um programa que calcule e mostre: O total de votos para cada
+# candidato; O total de votos nulos; O total de votos em branco; A percentagem de votos nulos sobre o total de votos;
+# #A percentagem de votos em branco sobre o total de votos. Para finalizar o conjunto de votos tem-se o valor zero.
+
+def eleicao_presidencial():
+    print("--------------------")
+    print("1 - Manuel Fonseca")
+    print("2 - Silva Ramos")
+    print("3 - Fernando Belarte")
+    print("4 - Henrique Cardoso")
+    print("5 - VOTO NULO")
+    print("6 - VOTO EM BRANCO")
+    print("--------------------")
+
+    contador_um = 0
+    contador_dois = 0
+    contador_tres = 0
+    contador_quatro = 0
+    contador_nulo = 0
+    contador_em_branco = 0
+
+    votar = int(input("Digite 1 para votar ou 0 para TERMINAR: "))
+    while votar != 1 and votar != 0:
+        print("--------------")
+        print("Opção Inválida")
+        print("--------------")
+        votar = int(input("Digite 1 para votar ou 0 para TERMINAR: "))
+
+    if votar == 0:
+        print("--------------------------------")
+        print("Programa encerrado pelo usuário!")
+        print("--------------------------------")
+        return 1
+
+    while votar != 0:
+
+        print("---------------------")
+        print("Você optou por votar!")
+        print("---------------------")
+
+        voto = int(input("Digite o número de votação(1 a 6):"))
+
+        if voto == 1:
+            print("-----------------------------")
+            print("Você votou em Manuel Fonseca!")
+            print("-----------------------------")
+            contador_um += 1
+
+        elif voto == 2:
+            print("--------------------------")
+            print("Você votou em Silva Ramos!")
+            print("--------------------------")
+            contador_dois += 1
+
+        elif voto == 3:
+            print("-------------------------------")
+            print("Você votou em Fernando Belarte!")
+            print("-------------------------------")
+            contador_tres += 1
+
+        elif voto == 4:
+            print("-------------------------------")
+            print("Você votou em Henrique Cardoso!")
+            print("-------------------------------")
+            contador_quatro += 1
+
+        elif voto == 5:
+            print("----------------")
+            print("Você votou NULO!")
+            print("----------------")
+            contador_nulo += 1
+
+        elif voto == 6:
+            print("---------------------")
+            print("Você votou EM BRANCO!")
+            print("---------------------")
+            contador_em_branco += 1
+
+        else:
+            print("---------------------------------")
+            print("Não candidaturas com este número!")
+            print("---------------------------------")
+
+        votar = int(input("Digite 1 para votar novamente ou 0 para TERMINAR: "))
+
+        while votar != 1 and votar != 0:
+            print("--------------")
+            print("Opção Inválida")
+            print("--------------")
+            votar = int(input("Digite 1 para votar novamente ou 0 para TERMINAR: "))
+
+
 if __name__ == "__main__":
-    lanchonete()
+    eleicao_presidencial()
