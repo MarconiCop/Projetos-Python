@@ -1559,22 +1559,21 @@ def numero_invertido():
 # S = 1/1 + 2/3 + 3/5 + 4/7 + 5/9 + ... + n/m. Imprima no final a soma da série.
 
 def soma_fracao():
-    numerador = 1
     denominador = 1
-    lista_numerador = []
-    lista_denominador = []
-    soma = 1
-
+    soma = 0
     print("S = ", end="")
 
-    while numerador <= 10:
-        print(numerador, "/", denominador, "   +   ", end="")
-        lista_numerador.append(numerador)
-        lista_denominador.append(denominador)
-        numerador += 1
+    for i in range(1, 10 + 1):
+        print("{}/{}".format(i, denominador), end="")
+        if i < 10 and 10 > 1:
+            print(" + ", end="")
+        else:
+            print(" = ", end="")
+
+        soma += i / denominador
         denominador += 2
 
-    print(numerador, "/", denominador, " = ", soma)
+    print("{:.2f}".format(soma), end="")
 
 
 # 50. Sendo H= 1 + 1/2 + 1/3 + 1/4 + ... + 1/N, Faça um programa que calcule o valor de H com N termos.
@@ -1603,4 +1602,4 @@ def soma_fracao_escolha():
 
 
 if __name__ == "__main__":
-    soma_fracao()
+    soma_fracao_escolha()
