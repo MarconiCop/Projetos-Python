@@ -1444,5 +1444,163 @@ def prova():
     print("-----------------------------------------------------------------")
 
 
+# 46. Numa competição de salto em distância cada atleta tem direito a cinco saltos. No final da série de saltos de
+# cada atleta, o melhor e o pior resultados são eliminados. O seu resultado fica a ser a média dos três valores
+# restantes. Deve fazer um programa que receba o nome e as cinco distâncias alcançadas pelo atleta nos seus
+# saltos e depois informe a média dos saltos conforme a descrição acima informada (retirar o melhor e o pior salto e
+# depois calcular a média). Use uma lista para armazenar os saltos. Os saltos são informados na ordem da
+# execução, portanto não são ordenados. O programa deve ser encerrado quando não for informado o nome do atleta. A
+# saída do programa deve ser conforme o exemplo abaixo: Atleta: Rodrigo Curvêllo
+# Primeiro Salto: 6,5 m
+# Segundo Salto: 6,1 m
+# Terceiro Salto: 6,2 m
+# Quarto Salto: 5,4 m
+# Quinto Salto: 5,3 m
+# Melhor salto: 6,5 m
+# Pior salto: 5,3 m
+# Média dos demais saltos: 5,9 m
+# Resultado:
+# Rodrigo Curvêllo: 5.9 m
+
+def competicao_salto():
+    nome = input("Digite o nome do atleta: ").capitalize()
+    saltos = []
+    if nome != "":
+
+        for posicao in range(1, 6):
+            salto = float(input("Digite a distância do salto {}: ".format(posicao)))
+            saltos.append(salto)
+
+        print("--------------------------------")
+        print("Atleta: {}".format(nome))
+        print("")
+        print("Primeiro Salto: {} m".format(saltos[0]))
+        print("Segundo Salto: {} m".format(saltos[1]))
+        print("Terceiro Salto: {} m".format(saltos[2]))
+        print("Quarto Salto: {} m".format(saltos[3]))
+        print("Quinto Salto: {} m".format(saltos[4]))
+        print("")
+        print("Melhor Salto: {} m".format(max(saltos)))
+        print("Pior Salto: {} m".format(min(saltos)))
+        media = (sum(saltos) - max(saltos) - min(saltos)) / 3
+        print("Média dos demais saltos: {:.2f} m".format(media))
+        print("")
+        print("Resultado Final:")
+        print("{}: {:.2f} m".format(nome, media))
+        print("--------------------------------")
+
+    else:
+        return 1
+
+
+# 47.Numa competição de ginástica, cada atleta recebe votos de sete jurados. A melhor e a pior nota são eliminadas.
+# A sua nota fica a ser a média dos votos restantes. Deve fazer um programa que receba o nome do ginasta e as
+# notas dos sete jurados alcançadas pelo atleta na sua apresentação e depois informe a sua média, conforme a
+# descrição acima informada (retirar o melhor e o pior salto e depois calcular a média com as notas restantes). As
+# notas não são informados ordenadas. Um exemplo de saída do programa deve ser conforme o exemplo abaixo: Atleta:
+# Aparecido Parente Nota: 9.9 Nota: 7.5 Nota: 9.5 Nota: 8.5 Nota: 9.0 Nota: 8.5 Nota: 9.7
+
+# Resultado:
+# Atleta: Aparecido Parente
+# Melhor nota: 9,9
+# Pior nota: 7.5
+# Média: 9,04
+
+def competicao_ginastica():
+    nome = input("Digite o nome do atleta: ").capitalize()
+    notas = []
+    if nome != "":
+
+        for posicao in range(1, 8):
+            nota = float(input("Digite a nota {}: ".format(posicao)))
+            notas.append(nota)
+
+        print("--------------------------------")
+        print("Atleta: {}".format(nome))
+        print("Nota: {}".format(notas[0]))
+        print("Nota: {}".format(notas[1]))
+        print("Nota: {}".format(notas[2]))
+        print("Nota: {}".format(notas[3]))
+        print("Nota: {}".format(notas[4]))
+        print("Nota: {}".format(notas[5]))
+        print("Nota: {}".format(notas[6]))
+        print("")
+        print("Resultado Final:")
+        print("Atleta: {}".format(nome))
+        print("Melhor nota: {}".format(max(notas)))
+        print("Pior nota: {}".format(min(notas)))
+
+        media = (sum(notas) - max(notas) - min(notas)) / 5
+        print("Média: {}".format(media))
+        print("--------------------------------")
+
+    else:
+        return 1
+
+
+# 48. Faça um programa que peça um número inteiro positivo e em seguida mostre este numero invertido.
+# Exemplo:
+# 12376489
+# => 98467321
+
+def numero_invertido():
+    numero = int(input("Informe um número inteiro: "))
+    inverso = 0
+
+    while numero != 0:
+        resto = numero % 10
+        inverso = inverso * 10 + resto
+        numero = numero // 10
+
+    print("O número invertido é", inverso)
+
+
+# 49. Faça um programa que mostre o n termos da Série a seguir:
+# S = 1/1 + 2/3 + 3/5 + 4/7 + 5/9 + ... + n/m. Imprima no final a soma da série.
+
+def soma_fracao():
+    numerador = 1
+    denominador = 1
+    lista_numerador = []
+    lista_denominador = []
+    soma = 1
+
+    print("S = ", end="")
+
+    while numerador <= 10:
+        print(numerador, "/", denominador, "   +   ", end="")
+        lista_numerador.append(numerador)
+        lista_denominador.append(denominador)
+        numerador += 1
+        denominador += 2
+
+    print(numerador, "/", denominador, " = ", soma)
+
+
+# 50. Sendo H= 1 + 1/2 + 1/3 + 1/4 + ... + 1/N, Faça um programa que calcule o valor de H com N termos.
+
+def soma_fracao_escolha():
+    numerador = 1
+    denominador = 1
+    lista_numerador = []
+    lista_denominador = []
+    soma = 0
+
+    print("H = ", end="")
+
+    n = int(input("Digite o término(n): "))
+
+    while denominador < n:
+        print(numerador, "/", denominador, "   +   ", end="")
+        lista_numerador.append(numerador)
+        lista_denominador.append(denominador)
+        denominador += 1
+
+    for i in range(1, n + 1):
+        soma = soma + 1 / i
+
+    print(numerador, "/", denominador, " = ", soma)
+
+
 if __name__ == "__main__":
-    prova()
+    soma_fracao()
