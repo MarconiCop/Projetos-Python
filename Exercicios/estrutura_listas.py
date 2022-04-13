@@ -67,6 +67,26 @@ def exibir_lista_vetores():
             else:
                 lista_impar.append(num)
 
+        else:
+            print("Opa! Número repetido. Que tal digitar outro número?")
+            num = int(input("Digite o número {}: ".format(numero)))
+
+            while num in lista:
+                print("Opa! Número repetido novamente. Que tal digitar outro número?")
+                num = int(input("Digite o número {}: ".format(numero)))
+
+            lista.append(num)
+
+            if num % 2 == 0:
+                lista_par.append(num)
+            else:
+                lista_impar.append(num)
+
+
+
+        print(lista)
+
+
     print(lista)
     print(lista_par)
     print(lista_impar)
