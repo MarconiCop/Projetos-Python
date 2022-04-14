@@ -82,15 +82,36 @@ def exibir_lista_vetores():
             else:
                 lista_impar.append(num)
 
-
-
-        print(lista)
-
-
     print(lista)
     print(lista_par)
     print(lista_impar)
 
 
+# 6. Faça um Programa que peça as quatro notas de 10 alunos, calcule e armazene num vetor a média de cada aluno,
+# imprima o número de alunos com média maior ou igual a 7,0.
+
+def exibir_lista_media():
+    lista_media = []
+    soma_das_notas = 0
+    contador = 0
+
+    for aluno in range(1, 10 + 1):
+
+        for nota in range(1, 4 + 1):
+            nota_do_aluno = float(input(("Digite a nota {} do Aluno {}: ".format(nota, aluno))))
+            soma_das_notas += nota_do_aluno
+
+        lista_media.append(soma_das_notas / 4)
+        soma_das_notas = 0
+
+    for posicao in range(0, len(lista_media)):
+        if lista_media[posicao] >= 7:
+            contador += 1
+    print("-------------------------------------------------------------------")
+    print("Médias dos alunos: {}".format(lista_media))
+    print("O número de alnos com média maior ou igual a 7  é(são) {} aluno(s).".format(contador))
+    print("-------------------------------------------------------------------")
+
+
 if __name__ == "__main__":
-    exibir_lista_vetores()
+    exibir_lista_media()
