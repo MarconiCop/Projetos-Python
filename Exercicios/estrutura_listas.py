@@ -113,5 +113,24 @@ def exibir_lista_media():
     print("-------------------------------------------------------------------")
 
 
+# 7. Faça um Programa que leia um vetor de 5 números inteiros, mostre a soma, a multiplicação e os números.
+
+def exibir_lista_multiplicacao():
+
+    lista = []
+    mult = 1
+
+    for numero in range(1, 5 + 1):
+        num = int(input(("Digite o número {}: ".format(numero))))
+        mult *= num
+        lista.append(num)
+
+    print("A soma dos números é: {}".format(sum(lista)))
+    print("A multiplicação dos números é: {}".format(mult))
+    print("Os números são: {}".format(lista))
+
+
+
+
 if __name__ == "__main__":
-    exibir_lista_media()
+    exibir_lista_multiplicacao()
