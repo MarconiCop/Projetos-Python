@@ -116,7 +116,6 @@ def exibir_lista_media():
 # 7. Faça um Programa que leia um vetor de 5 números inteiros, mostre a soma, a multiplicação e os números.
 
 def exibir_lista_multiplicacao():
-
     lista = []
     mult = 1
 
@@ -130,7 +129,24 @@ def exibir_lista_multiplicacao():
     print("Os números são: {}".format(lista))
 
 
+# 8. Faça um Programa que peça a idade e a altura de 5 pessoas, armazene cada informação no seu respetivo vetor.
+# Imprima a idade e a altura na ordem inversa a ordem lida.
+
+def exibir_lista_idade_altura():
+    lista_idade = []
+    lista_altura = []
+
+    for posicao in range(1, 5 + 1):
+        idade = int(input("Digite a idade da pessoa {}: ".format(posicao)))
+        altura = float(input("Digite a altura da pessoa {}: ".format(posicao)))
+        lista_idade.append(idade)
+        lista_altura.append(altura)
+
+    lista_idade_invertida = list(reversed(lista_idade))
+    lista_altura_invertida = list(reversed(lista_altura))
+    print(lista_idade_invertida)
+    print(lista_altura_invertida)
 
 
 if __name__ == "__main__":
-    exibir_lista_multiplicacao()
+    exibir_lista_idade_altura()
