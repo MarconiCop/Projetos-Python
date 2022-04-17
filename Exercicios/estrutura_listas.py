@@ -148,5 +148,20 @@ def exibir_lista_idade_altura():
     print(lista_altura_invertida)
 
 
+# 9. Faça um Programa que leia um vetor A com 10 números inteiros, calcule e mostre a soma dos quadrados dos
+# elementos do vetor.
+
+def exibir_lista_soma_quadrados():
+    A = []
+
+    for posicao in range(1, 10 + 1):
+        numero = int(input("Digite o número {}: ".format(posicao)))
+        numero = numero * numero
+        A.append(numero)
+
+    print(A)
+    print("Soma dos quadrados: {}".format(sum(A)))
+
+
 if __name__ == "__main__":
-    exibir_lista_idade_altura()
+    exibir_lista_soma_quadrados()
