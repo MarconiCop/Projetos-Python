@@ -677,6 +677,7 @@ def crime():
         print("Você é cúmplice!")
     elif(contador == 5):
         print("Você é assassino(a)!")
+
 #26.Um posto está vendendo combustíveis com a seguinte tabela de descontos:
 # Álcool:
 # até 20 litros, desconto de 3% por litro
