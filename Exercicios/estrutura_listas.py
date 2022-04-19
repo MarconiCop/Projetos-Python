@@ -445,12 +445,80 @@ def exibir_lista_salto():
         print("Resultado final:")
         print("Atleta: {}".format(nome))
         print("{} - {} - {} - {} - {}".format(saltos[0], saltos[1], saltos[2], saltos[3], saltos[4]))
-        print("Média dos saltos: {} m".format(sum(saltos)/len(saltos)))
+        print("Média dos saltos: {} m".format(sum(saltos) / len(saltos)))
         print("--------------------------------")
 
     else:
         return 1
 
 
+# 23. Uma grande emissora de televisão quer fazer uma enquete entre os seus telespectadores para delinear o melhor
+# jogador após cada jogo. Para isto, faz-se necessário o desenvolvimento de um programa, que será utilizado pelas
+# telefonistas, para a computação dos votos. A sua equipa foi contratada para desenvolver este programa, utilizando a
+# linguagem de programação C++. Para computar cada voto, a telefonista digitará um número, entre 1 e 23,
+# correspondente ao número da camisa do jogador. Um número de jogador igual zero, indica que a votação foi encerrada.
+# Se um número inválido for digitado, o programa deve ignorá-lo, mostrando uma breve mensagem de aviso, e voltando a
+# pedir outro número. Após o final da votação, o programa deverá exibir: O total de votos computados; os númeos e
+# respetivos votos de todos os jogadores que receberam votos; O percentual de votos de cada um destes jogadores; O
+# número do jogador escolhido como o melhor jogador da partida, com o número de votos e o percentual de
+# votos dados a ele. Observe que os votos inválidos e o zero finais não devem ser computados como votos. O resultado
+# aparece ordenado pelo número do jogador. O programa deve usar arrays. O programa deverá executar o cálculo
+# do percentual de cada jogador através de uma função. Esta função receberá dois parâmetros: o número de votos de um
+# jogador e o total de votos. A função calculará o percentual e retornará o valor calculado. Abaixo segue uma tela de
+# exemplo. A disposição das informações deve ser o mais próxima possível ao exemplo. Os dados são fictícios e podem
+# mudar a cada execução do programa. Ao final, o programa deve ainda gravar os dados referentes ao resultado da
+# votação num arquivo texto no disco, obedecendo a mesma disposição apresentada na tela.
+
+
+def exibir_lista_votacao():
+    contadores = [0] * 23
+    jogadores = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23)
+
+    print("-----------------------------------")
+    print("Enquete: Quem foi o melhor jogador?")
+    print("-----------------------------------")
+
+    votar = int(input("Número do jogador (0=fim):"))
+
+    if votar == 0:
+        print("Programa encerrado pelo usuário!")
+
+    elif votar in jogadores:
+        contadores[votar - 1] += 1
+
+        while votar != 0:
+            votar = int(input("Número do jogador (0=fim):"))
+            if votar not in jogadores:
+                while votar not in jogadores:
+                    print("Não está no intervalo!")
+                    votar = int(input("Número do jogador (0=fim):"))
+                    if votar == 0:
+                        break
+            contadores[votar - 1] += 1
+
+        contadores[22] -= 1
+
+    elif votar not in jogadores:
+        print("Não está no intervalo!")
+        while votar != 0:
+            votar = int(input("Número do jogador (0=fim):"))
+            if votar not in jogadores:
+                while votar not in jogadores:
+                    if votar == 0:
+                        break
+                    print("Não está no intervalo!")
+                    votar = int(input("Número do jogador (0=fim):"))
+                    if votar == 0:
+                        break
+            contadores[votar - 1] += 1
+
+        contadores[22] -= 1
+
+
+
+
+    print(contadores)
+
+
 if __name__ == "__main__":
-    exibir_lista_salto()
+    exibir_lista_votacao()
