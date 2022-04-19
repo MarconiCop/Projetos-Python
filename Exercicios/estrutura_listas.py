@@ -1,6 +1,7 @@
-# 1. Faça um Programa que leia um vetor de 5 números inteiros e mostre-os.
 import itertools
 
+
+# 1. Faça um Programa que leia um vetor de 5 números inteiros e mostre-os.
 
 def exibir_lista():
     lista = []
