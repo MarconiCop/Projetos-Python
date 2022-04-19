@@ -343,10 +343,6 @@ arr.array('d', [1, 3.5])
 
 arr.array('d', [1, 3.5, 'Guilherme'])
 
-!pip
-install
-numpy
-
 import numpy as np
 
 numeros = np.array([1, 3.5])
