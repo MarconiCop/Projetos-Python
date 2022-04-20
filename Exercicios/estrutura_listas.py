@@ -473,6 +473,7 @@ def exibir_lista_salto():
 def exibir_lista_votacao():
     contadores = [0] * 23
     jogadores = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23)
+    percentuais = []
 
     print("-----------------------------------")
     print("Enquete: Quem foi o melhor jogador?")
@@ -490,6 +491,8 @@ def exibir_lista_votacao():
             votar = int(input("Número do jogador (0=fim):"))
             if votar not in jogadores:
                 while votar not in jogadores:
+                    if votar == 0:
+                        break
                     print("Informe um valor entre 1 e 23 ou 0 para sair!")
                     votar = int(input("Número do jogador (0=fim):"))
                     if votar == 0:
@@ -514,10 +517,38 @@ def exibir_lista_votacao():
 
         contadores[22] -= 1
 
+    print("")
+    print("Resultado da votação:")
+    print("")
+    print("Foram computados {} votos.".format(sum(contadores)))
+    print("")
+    print("Jogador       Votos           %")
+
+    for voto in contadores:
+        percentual = calcula_percentual(voto, sum(contadores))
+        percentuais.append(percentual)
+
+    for posicao in range(0, 22):
+        if contadores[posicao] != 0:
+            print("   {}            {}           {:.1f}%".format(jogadores[posicao], contadores[posicao],
+                                                                 percentuais[posicao]))
+
+    for posicao in range(0, 22):
+        if contadores[posicao] == max(contadores):
+            melhor_jogador = posicao + 1
+            votos_do_jogador = contadores[posicao]
+            percentual_do_jogador = percentuais[posicao]
+
+    print(
+        "O melhor jogador foi o número {}, com {} votos, correspondendo a {:.2f}% do total de votos.".format(
+            melhor_jogador,
+            votos_do_jogador,
+            percentual_do_jogador))
 
 
-
-    print(contadores)
+def calcula_percentual(numero_votos, total_votos):
+    percentual = (numero_votos * 100) / total_votos
+    return percentual
 
 
 if __name__ == "__main__":
