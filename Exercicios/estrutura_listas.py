@@ -490,7 +490,7 @@ def exibir_lista_votacao():
             votar = int(input("Número do jogador (0=fim):"))
             if votar not in jogadores:
                 while votar not in jogadores:
-                    print("Não está no intervalo!")
+                    print("Informe um valor entre 1 e 23 ou 0 para sair!")
                     votar = int(input("Número do jogador (0=fim):"))
                     if votar == 0:
                         break
@@ -499,14 +499,14 @@ def exibir_lista_votacao():
         contadores[22] -= 1
 
     elif votar not in jogadores:
-        print("Não está no intervalo!")
+        print("Informe um valor entre 1 e 23 ou 0 para sair!")
         while votar != 0:
             votar = int(input("Número do jogador (0=fim):"))
             if votar not in jogadores:
                 while votar not in jogadores:
                     if votar == 0:
                         break
-                    print("Não está no intervalo!")
+                    print("Informe um valor entre 1 e 23 ou 0 para sair!")
                     votar = int(input("Número do jogador (0=fim):"))
                     if votar == 0:
                         break
