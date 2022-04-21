@@ -483,6 +483,7 @@ def exibir_lista_votacao():
 
     if votar == 0:
         print("Programa encerrado pelo usuário!")
+        return 1
 
     elif votar in jogadores:
         contadores[votar - 1] += 1
@@ -528,12 +529,12 @@ def exibir_lista_votacao():
         percentual = calcula_percentual(voto, sum(contadores))
         percentuais.append(percentual)
 
-    for posicao in range(0, 22):
+    for posicao in range(0, 23):
         if contadores[posicao] != 0:
             print("   {}            {}           {:.1f}%".format(jogadores[posicao], contadores[posicao],
                                                                  percentuais[posicao]))
 
-    for posicao in range(0, 22):
+    for posicao in range(0, 23):
         if contadores[posicao] == max(contadores):
             melhor_jogador = posicao + 1
             votos_do_jogador = contadores[posicao]
@@ -551,5 +552,122 @@ def calcula_percentual(numero_votos, total_votos):
     return percentual
 
 
+# 19. Uma empresa de pesquisas precisa tabular os resultados da seguinte enquete feita a um abundante de
+# organizações: "Qual o melhor Sistema operativo para uso em servidores?"
+#
+# As possíveis respostas são:
+#
+# 1- Windows Servidor 2- Unix 3- Linux 4- Netware 5- Mac OS 6- Outro Foi contratado para desenvolver um programa
+# que leia o resultado da enquete e informe ao final o resultado da mesma. O programa deverá ler os valores até ser
+# informado o valor 0, que encerra a entrada dos dados. Não deverão ser aceites valores além dos válidos para o
+# programa (0 a 6). Os valores referentes a cada uma das opções devem ser armazenados num vetor. Após os dados terem
+# sido completamente informados, o programa deverá calcular a percentual de cada um dos concorrentes e informar o
+# vencedor da enquete.
+
+def exibir_lista_votacao_sistema():
+
+    contadores = [0] * 6
+    sistemas = (1, 2, 3, 4, 5, 6)
+    percentuais = []
+
+    print("---------------------------------------------------------")
+    print("Qual o melhor Sistema Operacional para uso em servidores?")
+    print("---------------------------------------------------------")
+    print("")
+    print("1- Windows Server")
+    print("2- Unix")
+    print("3- Linux")
+    print("4- Netware")
+    print("5- Mac OS")
+    print("6- Outro")
+    print("")
+
+    votar = int(input("Número do Sistema (0=fim):"))
+
+    if votar == 0:
+        print("Programa encerrado pelo usuário!")
+        return 1
+
+    elif votar in sistemas:
+        contadores[votar - 1] += 1
+
+        while votar != 0:
+            votar = int(input("Número do Sistema (0=fim):"))
+            if votar not in sistemas:
+                while votar not in sistemas:
+                    if votar == 0:
+                        break
+                    print("Informe um valor entre 1 e 6 ou 0 para sair!")
+                    votar = int(input("Número do Sistema (0=fim):"))
+                    if votar == 0:
+                        break
+            contadores[votar - 1] += 1
+
+        contadores[5] -= 1
+
+    elif votar not in sistemas:
+        print("Informe um valor entre 1 e 6 ou 0 para sair!")
+        while votar != 0:
+            votar = int(input("Número do Sistema (0=fim):"))
+            if votar not in sistemas:
+                while votar not in sistemas:
+                    if votar == 0:
+                        break
+                    print("Informe um valor entre 1 e 6 ou 0 para sair!")
+                    votar = int(input("Número do Sistema (0=fim):"))
+                    if votar == 0:
+                        break
+            contadores[votar - 1] += 1
+
+        contadores[5] -= 1
+
+    for voto in contadores:
+        percentual = calcula_percentual(voto, sum(contadores))
+        percentuais.append(percentual)
+
+    print("")
+    print("Sistema Operacional     Votos   %")
+    print("-------------------     -----   ---")
+    print("Windows Server            {}     {:.2f}%".format(contadores[0], percentuais[0]))
+    print("Unix                      {}     {:.2f}%".format(contadores[1], percentuais[1]))
+    print("Linux                     {}     {:.2f}%".format(contadores[2], percentuais[2]))
+    print("Netware                   {}     {:.2f}%".format(contadores[3], percentuais[3]))
+    print("Mac OS                    {}     {:.2f}%".format(contadores[4], percentuais[4]))
+    print("Outro                     {}     {:.2f}%".format(contadores[5], percentuais[5]))
+    print("-------------------     -----")
+    print("Total                    {}".format(sum(contadores)))
+
+    for posicao in range(0, 6):
+        if contadores[posicao] == max(contadores):
+            melhor_sistema = posicao + 1
+            votos_do_sistema = contadores[posicao]
+            percentual_do_sistema = percentuais[posicao]
+
+    if melhor_sistema == 1:
+        nome_sistema = "Windows Server"
+    if melhor_sistema == 2:
+        nome_sistema = "Unix"
+    if melhor_sistema == 3:
+        nome_sistema = "Linux"
+    if melhor_sistema == 4:
+        nome_sistema = "Netware"
+    if melhor_sistema == 5:
+        nome_sistema = "Mac OS"
+    if melhor_sistema == 6:
+        nome_sistema = "Outro"
+
+    print("")
+    print(
+        "O Sistema Operacional mais votado foi o {}, com {} votos, correspondendo a {:.2f}% dos votos.".format(
+            nome_sistema,
+            votos_do_sistema,
+            percentual_do_sistema))
+
+
+def calcula_percentual(numero_votos, total_votos):
+    percentual = (numero_votos * 100) / total_votos
+    return percentual
+
+
 if __name__ == "__main__":
-    exibir_lista_votacao()
+    exibir_lista_votacao_sistema()
