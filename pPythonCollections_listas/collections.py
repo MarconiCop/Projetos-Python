@@ -343,6 +343,10 @@ arr.array('d', [1, 3.5])
 
 arr.array('d', [1, 3.5, 'Guilherme'])
 
+!pip
+install
+numpy
+
 import numpy as np
 
 numeros = np.array([1, 3.5])
@@ -461,18 +465,18 @@ isinstance(ContaCorrente(34), Conta)
 idades = [15, 87, 32, 65, 56, 32, 49, 37]
 
 for i in range(len(idades)):
-  print(i, idades[i])
+    print(i, idades[i])
 
-range(len(idades)) # lazy...
+range(len(idades))  # lazy...
 
-enumerate(idades) # lazy
+enumerate(idades)  # lazy
 
-list(range(len(idades))) # forcei a geração dos valores
+list(range(len(idades)))  # forcei a geração dos valores
 
 list(enumerate(idades))
 
-for indice, idade in enumerate(idades): # unpacking da nossa tupla
-  print(indice, "x", idade)
+for indice, idade in enumerate(idades):  # unpacking da nossa tupla
+    print(indice, "x", idade)
 
 usuarios = [
     ("Guilherme", 37, 1981),
@@ -480,11 +484,11 @@ usuarios = [
     ("Paulo", 39, 1979)
 ]
 
-for nome, idade, nascimento in usuarios: # ja desempacotando
-  print(nome)
+for nome, idade, nascimento in usuarios:  # ja desempacotando
+    print(nome)
 
-for nome, _, _ in usuarios: # ja desempacotando, ignorando o resto
-  print(nome)
+for nome, _, _ in usuarios:  # ja desempacotando, ignorando o resto
+    print(nome)
 
 idades
 
@@ -503,3 +507,105 @@ idades
 idades.sort()
 
 idades
+
+15 < 32
+
+nomes = ["guilherme", "Daniela", "Paulo"]
+sorted(nomes)
+
+
+class ContaSalario:
+
+    def __init__(self, codigo):
+        self._codigo = codigo
+        self._saldo = 0
+
+    def __eq__(self, outro):
+        if type(outro) != ContaSalario:
+            return False
+
+        return self._codigo == outro._codigo and self._saldo == outro._saldo
+
+    def deposita(self, valor):
+        self._saldo += valor
+
+    def __str__(self):
+        return "[>>Codigo {} Saldo {}<<]".format(self._codigo, self._saldo)
+
+
+conta_do_guilherme = ContaSalario(17)
+conta_do_guilherme.deposita(500)
+
+conta_da_daniela = ContaSalario(3)
+conta_da_daniela.deposita(1000)
+
+conta_do_paulo = ContaSalario(133)
+conta_do_paulo.deposita(510)
+
+contas = [conta_do_guilherme, conta_da_daniela, conta_do_paulo]
+
+for conta in contas:
+    print(conta)
+
+sorted(contas)
+
+conta_do_guilherme < conta_da_daniela
+
+
+def extrai_saldo(conta):
+    return conta._saldo
+
+
+for conta in sorted(contas, key=extrai_saldo):
+    print(conta)
+
+from operator import attrgetter
+
+for conta in sorted(contas, key=attrgetter("_saldo")):
+    print(conta)
+
+conta_do_guilherme < conta_da_daniela
+
+
+class ContaSalario:
+
+    def __init__(self, codigo):
+        self._codigo = codigo
+        self._saldo = 0
+
+    def __eq__(self, outro):
+        if type(outro) != ContaSalario:
+            return False
+
+        return self._codigo == outro._codigo and self._saldo == outro._saldo
+
+    def __lt__(self, outro):
+        return self._saldo < outro._saldo
+
+    def deposita(self, valor):
+        self._saldo += valor
+
+    def __str__(self):
+        return "[>>Codigo {} Saldo {}<<]".format(self._codigo, self._saldo)
+
+
+conta_do_guilherme = ContaSalario(17)
+conta_do_guilherme.deposita(500)
+
+conta_da_daniela = ContaSalario(3)
+conta_da_daniela.deposita(1000)
+
+conta_do_paulo = ContaSalario(133)
+conta_do_paulo.deposita(510)
+
+contas = [conta_do_guilherme, conta_da_daniela, conta_do_paulo]
+
+conta_do_guilherme < conta_da_daniela
+
+conta_do_guilherme > conta_da_daniela
+
+for conta in sorted(contas):
+    print(conta)
+
+for conta in sorted(contas, reverse=True):
+    print(conta)
