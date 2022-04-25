@@ -723,5 +723,58 @@ def exibir_lista_salario():
     print("Maior valor de abono pago: R${:.2f}".format(max(abonos)))
 
 
+# 21. Faça um programa que carregue uma lista com os modelos de cinco carros (exemplo de modelos: FUSCA, GOL,
+# VECTRA etc). Carregue outra lista com o consumo desses carros, isto é, quantos quilômetros cada um desses
+# carros faz com um litro de combustível. Calcule e mostre: O modelo do carro mais econômico; Quantos litros de
+# combustível cada um dos carros cadastrados consome para percorrer uma distância de 1000 quilômetros e quanto isto
+# custará, considerando um que a gasolina custe R$ 2,25 o litro. Abaixo segue uma tela de exemplo. O disposição das
+# informações deve ser o mais próxima possível ao exemplo. Os dados são fictícios e podem mudar a cada execução do
+# programa.
+
+def exibir_lista_carros():
+    carros = ("Fusca", "Gol", "Uno", "Vectra", "Peugeout")
+    consumo = []
+    litros = []
+    precos = []
+
+    print("")
+    print("Comparativo de Consumo de Combustível")
+    print("")
+
+    for contador in range(len(carros)):
+        print("Veículo {}".format(contador + 1))
+        print("Nome: {}".format(carros[contador]))
+        kilometro = float(input("Km por litro: "))
+
+        consumo.append(kilometro)
+
+    for consumos in consumo:
+        litros.append(calcula_mil(consumos))
+
+    for litro in litros:
+        precos.append((calcula_precos(litro)))
+
+    for posicao in range(len(carros)):
+        if max(consumo) == consumo[posicao]:
+            carro_economico = carros[posicao]
+
+    print("Relatório Final")
+    for posicao in range(len(carros)):
+        print("{} - {}  -    {} -  {:.2f} litros - R$ {:.2f}".format(posicao + 1, carros[posicao],
+                                                                     consumo[posicao],
+                                                                     litros[posicao],
+                                                                     precos[posicao]))
+
+    print("O menor consumo é do {}.".format(carro_economico))
+
+
+def calcula_mil(consumos):
+    return 1000 / consumos
+
+
+def calcula_precos(litro):
+    return litro * 2.25
+
+
 if __name__ == "__main__":
-    exibir_lista_salario()
+    exibir_lista_carros()
