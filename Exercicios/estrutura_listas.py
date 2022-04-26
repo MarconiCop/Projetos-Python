@@ -776,5 +776,84 @@ def calcula_precos(litro):
     return litro * 2.25
 
 
+# 22. A sua organização acaba de contratar um estagiário para trabalhar no Suporte de Informática, com a intenção de
+# fazer um levantamento nas sucatas encontradas nesta área. A primeira tarefa dele é testar todos os cerca de 200
+# ratos que se encontram lá, testando e anotando o estado de cada um deles, para verificar o que se pode aproveitar
+# deles. Foi requisitado que desenvolva um programa para registrar este levantamento. O programa deverá receber
+# um número indeterminado de entradas, cada uma contendo: um número de identificação do rato o APAGAR defeito:
+# necessita da esfera; necessita de limpeza; a.necessita troca do cabo ou conector; a.quebrado ou inutilizado Uma
+# identificação igual a zero encerra o programa.
+
+def exibir_lista_mouse():
+    lista = []
+    quantidade_mouses = []
+    problemas = []
+    percentual = []
+    contadores = []
+    contador_um = 0
+    contador_dois = 0
+    contador_tres = 0
+    contador_quatro = 0
+
+    class Mouse:
+
+        def __init__(self, codigo, numero_problema):
+            self.__codigo = codigo
+            self.__numero_problema = numero_problema
+
+        @property
+        def codigo(self):
+            return self.__codigo
+
+        @property
+        def numero_problema(self):
+            return self.__numero_problema
+
+    for mouse in range(1, 200 + 1):
+        codigo = int(input("Digite o código do mouse: "))
+        if codigo == 0:
+            break
+        problema = int(input("Digite o número do problema: "))
+        if problema != 1 and problema != 2 and problema != 3 and problema != 4:
+            break
+
+        mouses = Mouse(codigo, problema)
+        lista.extend([[mouses.codigo, mouses.numero_problema]])
+
+    for mouse in range(len(lista)):
+        quantidade_mouses.append(lista[mouse][0])
+
+    for problema in range(len(lista)):
+        problemas.append(lista[problema][1])
+
+    for problema in problemas:
+        if problema == 1:
+            contador_um += 1
+        elif problema == 2:
+            contador_dois += 1
+        elif problema == 3:
+            contador_tres += 1
+        elif problema == 4:
+            contador_quatro += 1
+
+    contadores.extend([contador_um, contador_dois, contador_tres, contador_quatro])
+
+    percentual_um = contador_um * 100 / sum(contadores)
+    percentual_dois = contador_dois * 100 / sum(contadores)
+    percentual_tres = contador_tres * 100 / sum(contadores)
+    percentual_quatro = contador_quatro * 100 / sum(contadores)
+
+    print("")
+    print("Quantidade de mouses: {}".format(len(quantidade_mouses)))
+    print("Situação                        Quantidade              Percentual")
+    print("1- necessita da esfera                  {}                     {:.2f}%".format(contador_um, percentual_um))
+    print(
+        "2- necessita de limpeza                 {}                     {:.2f}%".format(contador_dois, percentual_dois))
+    print(
+        "3- necessita troca do cabo ou conector  {}                     {:.2f}%".format(contador_tres, percentual_tres))
+    print("4- quebrado ou inutilizado              {}                     {:.2f}%".format(contador_quatro,
+                                                                                          percentual_quatro))
+
+
 if __name__ == "__main__":
-    exibir_lista_carros()
+    exibir_lista_mouse()

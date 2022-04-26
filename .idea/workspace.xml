@@ -44,7 +44,7 @@
     <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="PLAIN_TEXT" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Python.collections">
+  <component name="RunManager" selected="Python.estrutura_listas">
     <configuration name="collections" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PycharmProjects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -152,8 +152,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.collections" />
         <item itemvalue="Python.estrutura_listas" />
+        <item itemvalue="Python.collections" />
         <item itemvalue="Python.estrutura_repeticao" />
         <item itemvalue="Python.extrator_url" />
         <item itemvalue="Python.validador_url" />
