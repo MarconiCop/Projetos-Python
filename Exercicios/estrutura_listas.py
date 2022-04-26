@@ -1,5 +1,5 @@
 import itertools
-
+import random
 
 # 1. Faça um Programa que leia um vetor de 5 números inteiros e mostre-os.
 
@@ -855,5 +855,42 @@ def exibir_lista_mouse():
                                                                                           percentual_quatro))
 
 
+# 24. Faça um programa que simule um lançamento de dados. Lance o dado 100 vezes e armazene os resultados num vetor.
+# Depois, mostre quantas vezes cada valor foi conseguido. Dica: use um vetor de contadores(1 – 6) e uma função para
+# gerar numeros aleatórios, simulando os lançamentos dos dados.
+
+def exibir_lista_contadores():
+    contadores = []
+    numeros = []
+    contador_um = 0
+    contador_dois = 0
+    contador_tres = 0
+    contador_quatro = 0
+    contador_cinco = 0
+    contador_seis = 0
+
+    for jogada in range(1, 100 + 1):
+        numero = random.randint(1, 6)
+        numeros.append(numero)
+
+    for numero in numeros:
+        if numero == 1:
+            contador_um += 1
+        elif numero == 2:
+            contador_dois += 1
+        elif numero == 3:
+            contador_tres += 1
+        elif numero == 4:
+            contador_quatro += 1
+        elif numero == 5:
+            contador_cinco += 1
+        elif numero == 6:
+            contador_seis += 1
+
+    contadores.extend([contador_um, contador_dois, contador_tres, contador_quatro, contador_cinco, contador_seis])
+
+    for posicao in range(len(contadores)):
+        print("Houve {} jogadas com o número {}".format(contadores[posicao], posicao + 1))
+
 if __name__ == "__main__":
-    exibir_lista_mouse()
+    exibir_lista_contadores()
