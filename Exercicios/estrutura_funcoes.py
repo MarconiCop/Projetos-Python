@@ -32,12 +32,23 @@ def funcao_dois(n):
         print('')
 
 
-
 def principal_dois():
     n = int(input("Digite o número: "))
     funcao_dois(n)
 
 
-if __name__ == "__main__":
-    principal_dois()
+# 3. Faça um programa, com uma função que necessite de três argumentos, e que forneça a soma desses três argumentos.
 
+def funcao_tres(a, b, c):
+    return a + b + c
+
+def principal_tres():
+    a = int(input("Digite o número: "))
+    b = int(input("Digite o número: "))
+    c = int(input("Digite o número: "))
+    resultado = funcao_tres(a, b, c)
+    print(resultado)
+
+
+if __name__ == "__main__":
+    principal_tres()
