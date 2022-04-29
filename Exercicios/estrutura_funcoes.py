@@ -122,7 +122,6 @@ def conversao(hora, minuto):
 
 
 def principal_seis():
-
     desejo = 1
 
     while desejo > 0:
@@ -135,5 +134,41 @@ def principal_seis():
         desejo = int(input("Digite 0 para terminar ou 1 para continuar: "))
 
 
+# 7. Faça um programa que use a função valorPagamento para determinar o valor a ser pago por uma prestação de uma
+# conta. O programa deverá solicitar ao utilizador o valor da prestação e o número de dias em atraso e passar estes
+# valores para a função valorPagamento, que calculará o valor a ser pago e devolverá este valor ao programa que a
+# chamou. O programa deverá então exibir o valor a ser pago na tela. Após a execução o programa deverá voltar a pedir
+# outro valor de prestação e assim continuar até que seja informado um valor igual a zero para a prestação. Agora o
+# programa deverá ser encerrado, exibindo o relatório do dia, que conterá a quantidade e o valor total de prestações
+# pagas no dia. O cálculo do valor a ser pago é feito da seguinte forma. Para pagamentos sem atraso, cobrar o valor
+# da prestação. Quando houver atraso, cobrar 3% de multa, mais 0,1% de juros por dia de atraso.
+
+def valorPagamento(valor_prestacao, dias_em_atraso):
+    if dias_em_atraso == 0:
+        return valor_prestacao
+    else:
+        valor_prestacao += (0.03 * valor_prestacao) + (0.01 * dias_em_atraso * valor_prestacao)
+        return valor_prestacao
+
+
+def principal_sete():
+    prestacao = 1
+    lista = []
+    catalogo = {}
+
+    while prestacao != 0:
+        prestacao = float(input("Digite a prestação: "))
+        dias = int(input("Digite os dias em atraso: "))
+        valor_a_ser_pago = valorPagamento(prestacao, dias)
+        lista.append(valor_a_ser_pago)
+        catalogo[valor_a_ser_pago] = dias
+
+    del catalogo[0]
+    lista.pop()
+
+    for chave, valor in catalogo.items():
+        print(chave, "reais para", valor, "dias de atraso")
+
+
 if __name__ == "__main__":
-    principal_seis()
+    principal_sete()
