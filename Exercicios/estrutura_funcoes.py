@@ -170,5 +170,34 @@ def principal_sete():
         print(chave, "reais para", valor, "dias de atraso")
 
 
+# 8. Faça uma função que informe a quantidade de dígitos de um determinado número inteiro informado.
+
+def quantidade(numero):
+    numero_str = str(numero)
+    return print(len(numero_str))
+
+
+def principal_oito():
+    numero = int(input("Digite um número: "))
+    quantidade(numero)
+
+
+# 9. Reverso do número. Faça uma função que retorne o reverso de um número inteiro informado. Por exemplo: 127 -> 721.
+
+def reverso(numero):
+    inverso = 0
+    while numero != 0:
+        resto = numero % 10
+        inverso = inverso * 10 + resto
+        numero = numero // 10
+
+    return print("O número invertido é", inverso)
+
+
+def principal_nove():
+    numero = int(input("Digite um número: "))
+    reverso(numero)
+
+
 if __name__ == "__main__":
-    principal_sete()
+    principal_nove()
