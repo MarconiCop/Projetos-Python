@@ -5,6 +5,8 @@
 #     .....
 #     n   n   n   n   n   n ... N
 # para um n informado pelo utilizador. Use uma função que receba um valor n inteiro e imprima até a n-ésima linha.
+import random
+
 
 def funcao(numero):
     for number in range(numero):
@@ -199,5 +201,45 @@ def principal_nove():
     reverso(numero)
 
 
+# 10. Jogo de Craps. Faça um programa de implemente um jogo de Craps. O jogador lança um par de dados, obtendo um
+# valor entre 2 e 12. Se, na primeira jogada, você tirar 7 ou 11, você um "natural" e ganhou. Se você tirar 2,
+# 3 ou 12 na primeira jogada, isto é chamado "craps" e perdeu. Se, na primeira jogada, fez um 4, 5, 6,
+# 8, 9 ou 10,este é seu "Ponto". O seu objetivo agora é continuar a jogar os dados até tirar este número novamente.
+# Perde, no entanto, se tirar um 7 antes de tirar este Ponto novamente.
+
+def principal_dez():
+    lancar = int(input("Digite 0 para lançar o dado 1 e 2: "))
+    if lancar == 0:
+        dado_um = random.randrange(1, 6)
+        dado_dois = random.randrange(1, 6)
+        soma = dado_um + dado_dois
+
+    if soma == 7 or soma == 11:
+        print("Você é um Natural e Ganhou!! A soma deu: {}".format(soma))
+        return 1
+    elif soma == 2 or soma == 3 or soma == 12:
+        print("CRAPS! Você perdeu! A soma deu: {}".format(soma))
+        return 1
+    elif soma == 4 or soma == 5 or soma == 6 or soma == 8 or soma == 9 or soma == 10:
+        print("Soma: {}".format(soma))
+        ponto = soma
+
+    lancar = int(input("Digite 1 para lançar o dado 1 e 2: "))
+    while lancar != 0:
+        dado_um = random.randrange(1, 6)
+        dado_dois = random.randrange(1, 6)
+        soma = dado_um + dado_dois
+        print("Soma: {}".format(soma))
+
+        if soma == 7:
+            print("CRAPS! Você perdeu! A soma deu: {}".format(soma))
+            return 1
+        elif soma == ponto:
+            print("Você Ganhou!! A soma deu: {} e o ponto {}".format(soma, ponto))
+            return 1
+
+        lancar = int(input("Digite 1 para lançar o dado 1 e 2: "))
+
+
 if __name__ == "__main__":
-    principal_nove()
+    principal_dez()
