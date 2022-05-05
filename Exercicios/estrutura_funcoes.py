@@ -344,5 +344,31 @@ def principal_doze():
     embaralha(nome)
 
 
+# 13. Desenha moldura. Construa uma função que desenhe um retângulo usando os caracteres ‘+’ , ‘−’ e ‘| ‘.
+# Esta função deve receber dois parâmetros, linhas e colunas, sendo que o valor por omissão é o valor mínimo igual a 1
+# e o valor máximo é 20. Se valores fora da faixa forem informados, eles devem ser modificados para valores na
+# faixa de forma elegante.
+
+def cria_moldura(linha, coluna):
+    print("".join(("+", str("-") * linha, "+")))
+
+    for posicao in range(coluna):
+        print("".join(("|", " " * linha, "|")))
+
+    print("".join(("+", str("-") * linha, "+")))
+
+
+def principal_treze():
+    horizontal = int(input("Digite o valor das linhas(1 a 20):"))
+    vertical = int(input("Digite o valor das colunas(1 a 20):"))
+
+    if horizontal > 20:
+        horizontal == 20
+    if vertical > 20:
+        vertical == 20
+
+    cria_moldura(horizontal, vertical)
+
+
 if __name__ == "__main__":
-    principal_doze()
+    principal_treze()
