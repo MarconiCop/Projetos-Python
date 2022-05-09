@@ -40,5 +40,20 @@ def nome_vertical():
         print(nome[posicao])
 
 
+# 4. Nome na vertical em escada. Modifique o programa anterior para mostrar o nome em formato de escada.
+
+def nome_escada():
+    lista = []
+    nome_metade = ""
+    nome = input("Digite seu nome: ").upper()
+
+    for posicao in range(len(nome)):
+        lista.append(nome[posicao])
+
+    for posicao in range(len(lista)):
+        nome_metade = nome_metade + nome[posicao]
+        print(nome_metade)
+
+
 if __name__ == "__main__":
-    nome_vertical()
+    nome_escada()
