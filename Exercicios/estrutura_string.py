@@ -55,5 +55,24 @@ def nome_escada():
         print(nome_metade)
 
 
+# 5. Nome na vertical em escada invertida. Altere o programa anterior de modo que a escada seja invertida.
+
+def nome_escada_invertida():
+    lista = []
+    nome_metade = ""
+    nome = input("Digite seu nome: ").upper()
+
+    for posicao in range(len(nome)):
+        lista.append(nome[posicao])
+
+    for posicao in range(len(lista)):
+        nome_metade = nome_metade + nome[posicao]
+
+    print(nome_metade)
+    for posicao in range(len(nome_metade)):
+        nome_metade = nome_metade[:-1]
+        print(nome_metade)
+
+
 if __name__ == "__main__":
-    nome_escada()
+    nome_escada_invertida()

@@ -44,7 +44,7 @@
     <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="PLAIN_TEXT" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.estrutura_string">
     <configuration name="cpf_cnpj (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PycharmProjects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -152,9 +152,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.estrutura_string" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.cpf_cnpj (1)" />
-        <item itemvalue="Python.estrutura_string" />
         <item itemvalue="Python.estrutura_funcoes" />
         <item itemvalue="Python.cpf_cnpj" />
       </list>
