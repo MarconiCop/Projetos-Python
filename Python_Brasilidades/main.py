@@ -1,8 +1,6 @@
-import re
-from telefonesBr import TelefonesBr
+from datetime import datetime, timedelta
+from datas_br import DatasBr
 
-telefone = "552126481234"
-telefone_objeto = TelefonesBr(telefone)
-print(telefone_objeto)
-
+hoje = DatasBr()
+print(hoje.tempo_cadastro())
 
