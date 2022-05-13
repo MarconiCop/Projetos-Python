@@ -1,6 +1,7 @@
 # 1. Tamanho de ‘strings’. Faça um programa que leia 2 ‘strings’ e informe o conteúdo delas seguidas do seu comprimento.
 # Informe também se as duas ‘strings’ possuem o mesmo comprimento e são iguais ou diferentes no conteúdo.
 import re
+from collections import Counter
 
 
 def compara_string():
@@ -97,7 +98,8 @@ def data(dia, mes, ano):
         if mes == valor:
             mes_extenso = meses
 
-    return print("\nData de Nascimento: {}/{}/{} \nVocê Nasceu em {} de {} de {}".format(dia, mes, ano, dia, mes_extenso, ano))
+    return print(
+        "\nData de Nascimento: {}/{}/{} \nVocê Nasceu em {} de {} de {}".format(dia, mes, ano, dia, mes_extenso, ano))
 
 
 def e_bissexto(ano):
@@ -157,5 +159,17 @@ def data_extensa():
         return 0
 
 
+# 7. Conta espaços e vogais. Dado uma ‘string’ com uma frase informada pelo utilizador (incluindo espaços em branco),
+# conte: quantos espaços em branco existem na frase. Quantas vezes aparecem as vogais a, e, i, o, u.
+
+def conta_frase():
+    frase = input("Digite sua frase: ")
+    aparicoes = Counter(frase.lower())
+
+    for chave, valor in sorted(aparicoes.items()):
+        if chave == "a" or chave == "e" or chave == "i" or chave == "o" or chave == "u" or chave == " ":
+            print("Houve {} aparições da letra {}".format(valor, chave))
+
+
 if __name__ == "__main__":
-    data_extensa()
+    conta_frase()
