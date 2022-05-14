@@ -171,5 +171,19 @@ def conta_frase():
             print("Houve {} aparições da letra {}".format(valor, chave))
 
 
+# 8. Palíndromo. Um palíndromo é uma sequência de caracteres cuja leitura é idêntica se feita da direita para
+# esquerda ou vice−versa. Por exemplo: OSSO e OVO são palíndromos. Em textos mais complexos os espaços e pontuação
+# são ignorados. A frase SUBI NO ONIBUS é o exemplo de uma frase palíndroma onde os espaços foram ignorados. Faça um
+# programa que leia uma sequência de caracteres, mostre−a e diga se é um palíndromo ou não.
+
+def palindromo():
+    expressao = input('Escreva uma expressão: ').upper().replace(' ', '')
+    expInv = expressao[::-1]
+    if expressao == expInv:
+        print('É palíndromo, pois, {} --> {}.'.format(expressao, expInv))
+    else:
+        print('Não é palíndromo.')
+
+
 if __name__ == "__main__":
-    conta_frase()
+    palindromo()
