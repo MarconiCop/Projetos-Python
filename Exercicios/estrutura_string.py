@@ -1,3 +1,5 @@
+from validate_docbr import CPF
+
 # 1. Tamanho de ‘strings’. Faça um programa que leia 2 ‘strings’ e informe o conteúdo delas seguidas do seu comprimento.
 # Informe também se as duas ‘strings’ possuem o mesmo comprimento e são iguais ou diferentes no conteúdo.
 import re
@@ -185,5 +187,27 @@ def palindromo():
         print('Não é palíndromo.')
 
 
+# 8. Verificação de CPF. Desenvolva um programa que solicite a digitação de um número de CPF no formato
+# xxx.xxx.xxx-xx e indique se é um número válido ou inválido através da validação dos dígitos verificadores e dos
+# caracteres de formatação.
+
+class docCpf:
+    def __init__(self, documento):
+        if self.valida(documento):
+            return print("CPF Válido!")
+        else:
+            raise ValueError("CPF Inválido!!")
+
+    def valida(self, documento):
+        validador = CPF()
+        return validador.validate(documento)
+
+
+def valida_cpf():
+    cpf = input("Digite o CPF:")
+    cpf_obj = docCpf(cpf)
+    cpf_obj
+
+
 if __name__ == "__main__":
-    palindromo()
+    valida_cpf()
