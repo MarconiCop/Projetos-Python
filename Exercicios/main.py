@@ -1,7 +1,5 @@
-from  estrutura_classes import modela_bola
+from  estrutura_classes import modela_quadrado
 
-bola = modela_bola('azul', 50, 'plastico')
-print(bola)
-bola.trocaCor('vermelho')
-print(bola)
-bola.mostraCor()
+quadrado = modela_quadrado(4)
+
+

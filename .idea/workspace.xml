@@ -54,7 +54,7 @@
       <recent name="C:\Users\Marconi\PycharmProjects\Arquivos_Python" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.principal">
+  <component name="RunManager" selected="Python.main">
     <configuration name="estrutura_classes" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PycharmProjects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -162,9 +162,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main" />
         <item itemvalue="Python.principal" />
         <item itemvalue="Python.testa_io" />
-        <item itemvalue="Python.main" />
         <item itemvalue="Python.estrutura_classes" />
         <item itemvalue="Python.testa_concorrencia" />
       </list>
