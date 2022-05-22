@@ -1,5 +1,6 @@
-from  estrutura_classes import modela_quadrado
+from  estrutura_classes import modela_retangulo
 
-quadrado = modela_quadrado(4)
+quadrado = modela_retangulo(2, 4)
+print(quadrado)
 
 
