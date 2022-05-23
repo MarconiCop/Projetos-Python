@@ -1,19 +1,18 @@
-import re  # Expressões Regulares
-
-padrao = re.compile("[0-9]?[0-9]")
-lista = []
+import contatos_utils
 
 try:
-    with open('dados/contatos.csv', mode='r', encoding='latin_1') as arquivo_contatos:
+    # contatos = contatos_utils.csv_para_contatos('dados/contatos.csv', 'latin_1')
 
-        for linha in arquivo_contatos:
-            busca = padrao.search(linha)
-            lista.append(busca.group())
+    # contatos_utils.contatos_para_pickle(contatos, 'dados/contatos.pickle')
 
-    print(lista)
-    int_list = list(map(int, lista))
-    print(int_list)
+    # contatos = contatos_utils.pickle_para_contatos('dados/contatos.pickle')
 
+    # contatos_utils.pickle_para_json(contatos, 'dados/contatos.json')
+
+    contatos = contatos_utils.json_para_contatos('dados/contatos.json')
+
+    for contato in contatos:
+        print(f'{contato.id} - {contato.nome} - {contato.email}')
 
 
 except FileNotFoundError:
